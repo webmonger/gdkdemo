@@ -1,13 +1,14 @@
 GDK Demo
 =======
 
-Collection of GDK Sample apps and example code.
+Collection of GDK sample apps and example code.
 
 Refer to [the official GDK doc](https://developers.google.com/glass/develop/gdk/index)
-for the Glass Development Kit.
+for more information on the Glass Development Kit.
 
-This site contains (will contain) example programs and sample code,
-and other apps and libraries built with GDK.
+This repository contains (will contain) example programs and sample code,
+and other apps and libraries, which are built with GDK,
+or which are otherwise useful for Glassware development.
 
 
 
