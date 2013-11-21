@@ -1,4 +1,4 @@
-package com.livecarddemo;
+package com.gdkdemo.livecard;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -13,7 +13,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 
-import com.livecarddemo.service.LiveCardDemoLocalService;
+import com.gdkdemo.livecard.service.LiveCardDemoLocalService;
+import com.gdkdemo.livecard.R;
 import com.google.android.glass.touchpad.Gesture;
 import com.google.android.glass.touchpad.GestureDetector;
 

@@ -1,4 +1,4 @@
-package com.livecarddemo.service;
+package com.gdkdemo.livecard.service;
 
 import android.app.IntentService;
 import android.app.PendingIntent;
@@ -6,9 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
-import com.livecarddemo.LiveCardDemoActivity;
-import com.livecarddemo.R;
-import com.livecarddemo.common.LiveCardDemoConstants;
+import com.gdkdemo.livecard.LiveCardDemoActivity;
+import com.gdkdemo.livecard.common.LiveCardDemoConstants;
+import com.gdkdemo.livecard.R;
 import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.timeline.TimelineManager;
 

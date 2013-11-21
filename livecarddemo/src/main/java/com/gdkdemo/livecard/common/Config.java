@@ -1,4 +1,4 @@
-package com.livecarddemo.common;
+package com.gdkdemo.livecard.common;
 
 
 public final class Config

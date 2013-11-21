@@ -1,12 +1,12 @@
-package com.livecarddemo.service;
+package com.gdkdemo.livecard;
 
-import com.livecarddemo.common.Config;
+import com.gdkdemo.livecard.common.Config;
 import android.os.SystemClock;
 
 
 final class Log 
 {
-    private static final String TAG = "LiveCardDemo.service";
+    private static final String TAG = "LiveCardDemo";
 
     static final boolean V = Config.LOGLEVEL <= android.util.Log.VERBOSE;
     static final boolean D = Config.LOGLEVEL <= android.util.Log.DEBUG;
