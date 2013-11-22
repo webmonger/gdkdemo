@@ -24,4 +24,21 @@ It also shows how to add a menu to a LiveCard,
 which is bound to the main activity.
 
 
+## Gesture Demo
+
+This simple Glass app is based on the sample code
+found in the GDK doc: [Touch Gesture](https://developers.google.com/glass/develop/gdk/input/touch).
+
+It adds some minor changes
+so that the gesture event is displayed on the screen
+(either on a separrate activity or as a Toast,
+based on the value of the Config variable, `USE_GESTURE_INFO_ACTIVITY`).
+
+You can start the app through the following voice input.
+
+_OK, Glass._ _Start Gesture Demo_
+
+
+
+
 
