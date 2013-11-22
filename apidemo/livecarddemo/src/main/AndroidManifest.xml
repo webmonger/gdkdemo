@@ -16,9 +16,6 @@
         android:label="@string/app_name"
         android:theme="@style/LiveCardDemoTheme" >
 
-<!--
-        <service android:name=".service.LiveCardDemoIntentService" />
--->
         <service android:name="com.gdkdemo.livecard.service.LiveCardDemoLocalService" />
 
         <activity
@@ -38,7 +35,7 @@
 
             <meta-data
                 android:name="com.google.android.glass.VoiceTrigger"
-                android:resource="@xml/livecarddemo_voiceinput" />
+                android:resource="@xml/voiceinput_livecarddemo" />
         </activity>
 
     </application>

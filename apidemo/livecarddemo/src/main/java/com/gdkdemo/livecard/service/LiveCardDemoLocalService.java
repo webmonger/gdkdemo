@@ -18,10 +18,6 @@ import com.gdkdemo.livecard.R;
 // ...
 public class LiveCardDemoLocalService extends Service
 {
-//    private static final int NOTIFICATION = R.string.livecarddemo_localservice_started;
-//    private NotificationManager mNM;
-
-
     // "Life cycle" constants
 
     // [1] Starts from this..
@@ -38,6 +34,7 @@ public class LiveCardDemoLocalService extends Service
     // ....
 
     // Global "state" of the service.
+    // Currently not being used...
     private int currentState;
 
 
@@ -93,56 +90,6 @@ public class LiveCardDemoLocalService extends Service
     }
 
 
-
-    // To be deleted....
-    private void handleIntent(Intent intent)
-    {
-        String action = intent.getStringExtra(LiveCardDemoConstants.EXTRA_KEY_ACTION);
-        if(action == null) {
-            Log.i("Extra params for key action is not found in the intent.");
-            // return;
-            // --> When we start a service, no extra bundle is needed...
-        }
-
-
-        // TBD:
-        // Check the current State before processing action events... ???
-        // ...
-
-        // 1. We only use GUARD_SERVICE_START, at this point, for service lifecycle related eventa.
-        // 2. Note that action_panic is not used for this service. Only action cancel is used...
-        if(action == null || action.equals(LiveCardDemoConstants.GUARD_SERVICE_START)) {
-            if(Log.D) Log.d("Service: start");
-            onServiceStart();
-        } else if(action.equals(LiveCardDemoConstants.GUARD_SERVICE_PAUSE)) {
-            if(Log.D) Log.d("Service: pause");
-            onServicePause();
-        } else if(action.equals(LiveCardDemoConstants.GUARD_SERVICE_RESUME)) {
-            if(Log.D) Log.d("Service: resume");
-            onServiceResume();
-        } else if(action.equals(LiveCardDemoConstants.GUARD_SERVICE_STOP)) {
-            if(Log.D) Log.d("Service: stop");
-            onServiceStop();
-        } else if(action.equals(LiveCardDemoConstants.GUARD_ACTION_PANIC)) {
-            if(Log.D) Log.d("Action: panic");
-            handleActionPanic();
-            postProcessing();
-        } else if(action.equals(LiveCardDemoConstants.GUARD_ACTION_CANCEL)) {
-            if(Log.D) Log.d("Action: cancel");
-            handleActionCancel();
-            postProcessing();
-        } else {
-            Log.w("Extra param is invalid: " + action);
-            return;
-        }
-
-        // ???
-//        postProcessing();
-    }
-
-
-
-
     // Service state handlers.
     // ....
 
@@ -185,41 +132,6 @@ public class LiveCardDemoLocalService extends Service
     }
 
 
-
-    // User action handlers
-    // ...
-
-    private boolean handleActionPanic()
-    {
-        Log.d("handleActionPanic() called.");
-        currentState = STATE_PANIC_TRIGGERED;
-
-
-
-        currentState = STATE_PANIC_PROCESSED;
-        return true;
-    }
-
-    private boolean handleActionCancel()
-    {
-        Log.d("handleActionCancel() called.");
-        currentState = STATE_CANCEL_REQUESTED;
-
-
-
-        currentState = STATE_CANCEL_PROCESSED;
-        return true;
-    }
-
-
-    // ????
-    private void postProcessing()
-    {
-//        currentState = STATE_NORMAL;
-    }
-
-
-
     // For live cards...
 
     private void publishCard(Context context)
@@ -248,31 +160,6 @@ public class LiveCardDemoLocalService extends Service
             liveCard.unpublish();
             liveCard = null;
         }
-    }
-
-
-
-    // For REST services
-
-//    public void uploadTrackingInfo()
-//    {
-//        RestClient.DataBO dataBO = new RestClient.DataBO();
-//
-//        // TBD:
-//        // get data....
-//        ///
-//
-//        try {
-//            restClient.sendTrackingInfo(dataBO);
-//        } catch (IOException e) {
-//            Log.e("Failed to send ", e);
-//        }
-//    }
-
-    public void sendAlert()
-    {
-        // TBD:
-        // Do something....
     }
 
 

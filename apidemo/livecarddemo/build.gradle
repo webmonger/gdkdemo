@@ -17,14 +17,6 @@ tasks.withType(Compile) {
 
 
 repositories {
-    maven {
-        url "file:///Projects/minirepo/android"
-        artifactUrls mavenLocal()
-    }
-    maven {
-        url "file:///Projects/minirepo/snapshots"
-        artifactUrls mavenLocal()
-    }
     mavenCentral()
 }
 
@@ -56,7 +48,6 @@ dependencies {
 	// compile 'com.android.support:appcompat-v7:18.0.+'
 	// compile 'com.google.android.gms:play-services:4.0.30'
 
-    compile 'com.google.code.gson:gson:2.2.4'    
     compile fileTree(dir: 'libs', include: '*.jar')
 
 }
