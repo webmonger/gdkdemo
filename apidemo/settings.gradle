@@ -1,1 +1,1 @@
-include ':livecarddemo'
+include ':livecarddemo', ':gesturedemo'

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Gesture Demo</string>
+
+    <string name="gesturedemo_screen_content">Gesture Demo\nIs Now Active</string>
+    <string name="gesturedemo_livecard_content">Gesture Demo\nIs Currently Active</string>
+    <string name="gensture_info_content">Gesture:</string>
+
+    <string name="title_activity_gesture_info">Gesture Demo</string>
+
+    <!--  For voice input  -->
+    <string name="gesturedemo_voice_trigger">start gesture demo</string>
+    <string name="gesturedemo_voice_prompt">gesture demo started</string>
+
+</resources>

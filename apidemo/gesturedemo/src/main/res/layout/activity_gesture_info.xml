@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#001133"
-    tools:context=".LiveCardDemoActivity">
+    android:background="#0099cc"
+    tools:context=".GlassPanicActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -14,8 +14,9 @@
         android:keepScreenOn="true"
         android:textColor="#88eafa"
         android:textStyle="bold"
-        android:textSize="50sp"
+        android:textSize="38sp"
         android:gravity="center"
-        android:text="@string/livecarddemo_screen_content" />
+        android:text="@string/gensture_info_content"
+        android:textIsSelectable="false" />
 
 </FrameLayout>

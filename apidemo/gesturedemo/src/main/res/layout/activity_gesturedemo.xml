@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#001133"
-    tools:context=".LiveCardDemoActivity">
+    tools:context=".GestureDemoActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -16,6 +16,6 @@
         android:textStyle="bold"
         android:textSize="50sp"
         android:gravity="center"
-        android:text="@string/livecarddemo_screen_content" />
+        android:text="@string/gesturedemo_screen_content" />
 
 </FrameLayout>
