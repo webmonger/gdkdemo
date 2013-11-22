@@ -27,7 +27,7 @@ This Glassware demonstrates a simple implementation of the
 [LiveCard](https://developers.google.com/glass/develop/gdk/ui/live-cards) API.
 
 It creates a LiveCard when the app's main activity is first activated (through voice input).
-The lifecycle of the LiveCard is associated with that of a background `Service` (.service.LiveDemoLocalService).
+The lifecycle of the LiveCard is associated with that of a background Service (`LiveCardDemoLocalService`).
 
 It also shows how to add a menu to a LiveCard, 
 which is bound to the main activity.
