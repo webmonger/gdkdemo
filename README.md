@@ -11,6 +11,15 @@ and other apps and libraries, which are built with GDK,
 or which are otherwise useful for Glassware development.
 
 
+You can build the demo Glassware using Gradle:
+
+    gradle clean build
+
+You can install it on your Glass (if you have one) using `adb`.
+
+    adb install -r build/apk/[app name]-release.apk
+
+
 
 ## LiveCard Demo
 
