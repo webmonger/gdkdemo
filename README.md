@@ -51,11 +51,11 @@ _OK, Glass._ _Start Gesture Demo_
 
 This demo app includes two activities: 
 
-* `VoiceDemoActivity` - This activity demonstrates the voice trigger and voice prompt input.
-* `VoiceDictationActivity` - This shows how to call the system-provided Speech Recognition API via the intent type `RecognizerIntent.ACTION_RECOGNIZE_SPEECH`.  
+* `VoiceDemoActivity` - This is the main activity, and it demonstrates the voice trigger and voice prompt input.
+* `VoiceDictationActivity` - This activity shows how to call the system-provided Speech Recognition API via the intent type `RecognizerIntent.ACTION_RECOGNIZE_SPEECH`.  
 
 After starting the app via the voice command, _OK, Glass._ _Start Voice Demo_, 
-speak _dictate_ at the voice prompt "next action",
+speak _dictate_ at the voice prompt "next action"
 to start the `VoiceDictationActivity`. It can also be activated using the TAP gesture.
 Tap to start dictation.
 
