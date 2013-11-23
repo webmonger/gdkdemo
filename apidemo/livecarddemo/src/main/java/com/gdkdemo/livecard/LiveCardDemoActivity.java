@@ -26,15 +26,15 @@ public class LiveCardDemoActivity extends Activity
 {
     // Service to handle liveCard publishing, etc...
     private boolean mIsBound = false;
-    private LiveCardDemoLocalService glassGuardLocalService;
+    private LiveCardDemoLocalService liveCardDemoLocalService;
     private ServiceConnection serviceConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder service) {
             Log.d("onServiceConnected() called.");
-            glassGuardLocalService = ((LiveCardDemoLocalService.LocalBinder)service).getService();
+            liveCardDemoLocalService = ((LiveCardDemoLocalService.LocalBinder)service).getService();
         }
         public void onServiceDisconnected(ComponentName className) {
             Log.d("onServiceDisconnected() called.");
-            glassGuardLocalService = null;
+            liveCardDemoLocalService = null;
         }
     };
     private void doBindService()
