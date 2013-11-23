@@ -1,14 +1,13 @@
 GDK Demo
 =======
 
-Collection of GDK sample apps and example code.
+_Collection of GDK sample apps and example code._
 
 Refer to [the official GDK doc](https://developers.google.com/glass/develop/gdk/index)
 for more information on the Glass Development Kit.
-
-This repository contains (will contain) example programs and sample code,
+This repository contains (will contain) a variety of example programs and sample code,
 and other apps and libraries, which are built with GDK,
-or which are otherwise useful for Glassware development.
+or which are otherwise relevant to Glassware development.
 
 
 You can build the demo Glassware using Gradle:
@@ -48,6 +47,17 @@ You can start the app through the following voice input.
 _OK, Glass._ _Start Gesture Demo_
 
 
+## Voice Demo
+
+This demo app includes two activities: 
+
+* `VoiceDemoActivity` - This activity demonstrates the voice trigger and voice prompt input.
+* `VoiceDictationActivity` - This shows how to call the system-provided Speech Recognition API via the intent type `RecognizerIntent.ACTION_RECOGNIZE_SPEECH`.  
+
+After starting the app via the voice command, _OK, Glass._ _Start Voice Demo_, 
+speak _dictate_ at the voice prompt "next action",
+to start the `VoiceDictationActivity`. It can also be activated using the TAP gesture.
+Tap to start dictation.
 
 
 
