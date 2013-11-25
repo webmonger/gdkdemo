@@ -1,4 +1,4 @@
-GDK Demo
+GDK Demo - GDK Glassware Playground
 =======
 
 _Collection of GDK sample apps and example code._
@@ -20,7 +20,7 @@ You can install it on your Glass (if you have one) using `adb`.
 
 
 
-## LiveCard Demo
+## Live Card Demo
 
 This Glassware demonstrates a simple implementation of the 
 [LiveCard](https://developers.google.com/glass/develop/gdk/ui/live-cards) API.
@@ -32,7 +32,7 @@ It also shows how to add a menu to a LiveCard,
 which is bound to the main activity.
 
 
-## LiveCard Demo 2
+## Live Card Demo 2
 
 The purpose of this example is to test 
 the ["low frequency rendering" of Live Cards](https://developers.google.com/glass/develop/gdk/ui/live-cards).
