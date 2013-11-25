@@ -26,10 +26,10 @@ into an IDE such as Android Studio.
 
 # API Demo
 
-## GDK Live Card Demo 
+## GDK Live Card Demos
 
 The `apidemo` directory contains two Glass apps
-which demonstrates a simple implementation of the 
+which demonstrate a simple implementation of the 
 [LiveCard](https://developers.google.com/glass/develop/gdk/ui/live-cards) API.
 The second app, Live Card Demo 2, includes a sample code
 for updating the LiveCard content via "low frequency rendering".
