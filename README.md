@@ -38,13 +38,14 @@ The purpose of this example is to test
 the ["low frequency rendering" of Live Cards](https://developers.google.com/glass/develop/gdk/ui/live-cards).
 
 It uses an Android `TimerTask` to update the live card's content every 10 seconds.
+
 It also has slightly different behavior from the preivious version "LiveCard Demo"
 in that it sets the "NonSlient" flag to true.
 If you want to stop the app, tap the LiveCard screen to go back to the main Activity screen,
 from which tapping one more will exist the program (after removing the live card, etc.)
 
 
-## Gesture Demo
+## Touch Gesture Demo
 
 This simple Glass app is based on the sample code
 found in the GDK doc: [Touch Gesture](https://developers.google.com/glass/develop/gdk/input/touch).
@@ -59,7 +60,7 @@ You can start the app through the following voice input.
 _OK, Glass._ _Start Gesture Demo_
 
 
-## Voice Demo
+## Voice Input Demo
 
 This demo app includes two activities: 
 
