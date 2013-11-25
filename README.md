@@ -1,7 +1,7 @@
-Glass Development Kit (GDK) Playground
+GDK Playground
 =======
 
-`GDK Demo` is a collection of GDK sample apps and example code.
+`GDK Demo` is a collection of Glass Development Kit sample apps and example code.
 You can quickly test new GDK API features using the sample Glassware.
 
 Refer to [the official GDK doc](https://developers.google.com/glass/develop/gdk/index)
@@ -31,6 +31,8 @@ into an IDE such as Android Studio.
 The `apidemo` directory contains two Glass apps
 which demonstrates a simple implementation of the 
 [LiveCard](https://developers.google.com/glass/develop/gdk/ui/live-cards) API.
+The second app, Live Card Demo 2, includes a sample code
+for updating the LiveCard content via "low frequency rendering".
 
 
 ## GDK Touch Gesture Demo
