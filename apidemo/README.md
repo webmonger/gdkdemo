@@ -1,23 +1,5 @@
-GDK Demo - GDK Glassware Playground
+Glass Development Kit API Demo
 =======
-
-_Collection of GDK sample apps and example code._
-
-Refer to [the official GDK doc](https://developers.google.com/glass/develop/gdk/index)
-for more information on the Glass Development Kit.
-This repository contains (will contain) a variety of example programs and sample code,
-and other apps and libraries, which are built with GDK,
-or which are otherwise relevant to Glassware development.
-
-
-You can build the demo Glassware using Gradle:
-
-    gradle clean build
-
-You can install it on your Glass (if you have one) using `adb`.
-
-    adb install -r build/apk/[app name]-release.apk
-
 
 
 ## Live Card Demo
