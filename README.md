@@ -26,16 +26,16 @@ into an IDE such as Android Studio.
 
 # API Demo
 
-## GDK Live Card Demos
+## GDK Live Card Sample Code
 
-The `apidemo` directory contains two Glass apps
+The [apidemo](https://github.com/harrywye/gdkdemo/tree/master/apidemo) directory contains two Glass apps
 which demonstrate a simple implementation of the 
 [LiveCard](https://developers.google.com/glass/develop/gdk/ui/live-cards) API.
 The second app, Live Card Demo 2, includes a sample code
 for updating the LiveCard content via "low frequency rendering".
 
 
-## GDK Touch Gesture Demo
+## GDK Touch Gesture Sample Code
 
 This Glassware shows to how to implement
 the [Touch Gesture](https://developers.google.com/glass/develop/gdk/input/touch) input modes.
@@ -44,13 +44,20 @@ The app can be started using the following voice input:
 _OK, Glass._ _Start Gesture Demo_
 
 
-## GDK Voice Input Demo
+## GDK Voice Input Sample Code
 
 This demo Glassware uses the GDK Voice Input API.
 You can start the app via Voice Trigger, _Start Voice Demo..._, followed by the phrase _dictate_.
 This voice command opens a new activity, 
 which includes the "dictation" function.
 Tap to start dictation.
+
+
+## GDK Location Sample Code
+
+This example app uses the Android `LocationManager` API
+to display the user's dynamic location on the LiveCard.
+
 
 
 
