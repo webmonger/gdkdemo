@@ -57,3 +57,14 @@ Tap to start dictation.
 
 
 
+## Location API Demo
+
+This demo Glassware uses the Android `LocationManager` API
+to display the user's location on the LiveCard.
+The location is dynamically updated based on the data supplied by a number of location providers
+(including the "remote" location provider, if available).
+
+A simple (toy) algorithm is used to get the "best" location information at any given time.
+
+
+
