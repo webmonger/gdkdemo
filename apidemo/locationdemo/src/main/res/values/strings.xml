@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Location Demo</string>
+
+    <string name="locationdemo_screen_content">Location Demo is Currently Active\nTap to Stop</string>
+    <string name="locationdemo_livecard_content">Location Data:</string>
+
+    <!--  LocationDemoLocalService  -->
+    <string name="locationdemo_localservice_started">Location Demo Service started.</string>
+
+    <!--  For voice input  -->
+    <string name="locationdemo_voice_trigger">start location demo</string>
+    <string name="locationdemo_voice_prompt">location demo is on</string>
+
+</resources>

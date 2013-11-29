@@ -33,3 +33,5 @@ nomaven/build/apidoc/
 
 /ghsite/
 /repo/
+
+rungradle.sh
