@@ -192,21 +192,25 @@ public class LocationDemoLocalService extends Service
     }
     private void publishCard(Context context, boolean update)
     {
-        Log.d("publishCard() called.");
+        if(Log.D) Log.d("publishCard() called: update = " + update);
         if (liveCard == null || update == true) {
 
-            // TBD:
-            // We get multiple liveCards if we just call setViews() and publish()...
-            // As a workaround, for now, we always unpublish the previous card first.
-            if (liveCard != null) {
-                liveCard.unpublish();
-            }
-            // ....
+//            // TBD:
+//            // We get multiple liveCards if we just call setViews() and publish()...
+//            // As a workaround, for now, we always unpublish the previous card first.
+//            if (liveCard != null) {
+//                liveCard.unpublish();
+//            }
+//            // ....
 
             final String cardId = "locationdemo_card";
             TimelineManager tm = TimelineManager.from(context);
-            liveCard = tm.getLiveCard(cardId);
-            liveCard.setNonSilent(true);       // ???
+            if(liveCard == null) {
+            // if(liveCard == null || ! liveCard.isPublished()) {
+                liveCard = tm.getLiveCard(cardId);
+                liveCard.setNonSilent(true);       // for testing.
+            }
+            // TBD: The reference to remoteViews can be kept in this service as well....
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_locationdemo);
             String content = "";
             if(lastLocation != null) {
@@ -219,7 +223,23 @@ public class LocationDemoLocalService extends Service
             liveCard.setViews(remoteViews);
             Intent intent = new Intent(context, LocationDemoActivity.class);
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
-            liveCard.publish();
+            // ???
+            // Without this if(),
+            // I get an exception:
+            // "java.lang.IllegalStateException: State CREATED expected, currently in PUBLISHED"
+            // Why???
+            if(! liveCard.isPublished()) {
+                liveCard.publish();
+            } else {
+                // ????
+                // According to the GDK doc,
+                // it appears we should call publish() every time the content changes...
+                // But, it seems to work without re-publishing...
+                if(Log.D) {
+                    long now = System.currentTimeMillis();
+                    Log.d("liveCard not published at " + now);
+                }
+            }
         } else {
             // Card is already published.
             return;
@@ -308,7 +328,9 @@ public class LocationDemoLocalService extends Service
                 double dAlt2 = (location.getAltitude() - lastLocation.getAltitude()) * (location.getAltitude() - lastLocation.getAltitude());
                 double distance = Math.sqrt(dLat2 + dLng2 + dAlt2);
 
-                if(distance * 0.5 >= acc) {  // Note the arbitrary factor...
+                // Note the arbitrary factor.
+                // We need to "tune" this value...
+                if(distance >= acc * 0.001 ) {
                     lastLocation = location;
                     lastUpdatedTime = now;
                 } else {
@@ -317,7 +339,8 @@ public class LocationDemoLocalService extends Service
             }
         }
 
-        if(lastUpdatedTime > lastProcessedTime) {
+        // if(lastUpdatedTime > lastProcessedTime) {
+        if(lastUpdatedTime == now) {
             // TBD:
             // Store the data point in DB, etc...
         }
@@ -326,9 +349,11 @@ public class LocationDemoLocalService extends Service
         lastProcessedTime = now;
 
         // Update the UI.
-        if(liveCard != null && liveCard.isPublished()) {
-            // Publish again...
+        if(lastUpdatedTime == now) {
+            // Update the live card.
             publishCard(this, true);
+        } else {
+            // Skip...
         }
     }
 
