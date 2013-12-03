@@ -1,4 +1,4 @@
-GDK Playground
+Google Glass GDK Playground
 =======
 
 `GDK Demo` is a collection of Glass Development Kit sample apps and example code.
