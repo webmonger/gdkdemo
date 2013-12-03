@@ -172,7 +172,7 @@ public class LiveCardDemoLocalService extends Service
             TimelineManager tm = TimelineManager.from(context);
             liveCard = tm.getLiveCard(cardId);
             // liveCard.setNonSilent(false);       // Initially keep it silent ???
-            liveCard.setNonSilent(true);      // for testing, it's more convenient.
+            liveCard.setNonSilent(true);      // for testing, it's more convenient. Bring the card to front.
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_livecarddemo2);
             liveCard.setViews(remoteViews);
             Intent intent = new Intent(context, LiveCardDemoActivity.class);
@@ -194,20 +194,26 @@ public class LiveCardDemoLocalService extends Service
         } else {
             // Card is already published.
 
-            // ????
-            // Without this (if use "republish" below),
-            // we will end up with multiple live cards....
-            liveCard.unpublish();
-            // ...
+//            // ????
+//            // Without this (if use "republish" below),
+//            // we will end up with multiple live cards....
+//            liveCard.unpublish();
+//            // ...
 
-            TimelineManager tm = TimelineManager.from(context);
-            liveCard = tm.getLiveCard(cardId);
-            liveCard.setNonSilent(true);       // Bring it to front.
+
+            // getLiveCard() seems to always publish a new card
+            //       contrary to my expectation based on the method name (sort of a creator/factory method).
+            // That means, we should not call getLiveCard() again once the card has been published.
+//            TimelineManager tm = TimelineManager.from(context);
+//            liveCard = tm.getLiveCard(cardId);
+//            liveCard.setNonSilent(true);       // Bring it to front.
+            // TBD: The reference to remoteViews can be kept in this service as well....
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_livecarddemo2);
             String content = "";
 
             // testing
-            content = "Updated: " + System.currentTimeMillis();
+            long now = System.currentTimeMillis();
+            content = "Updated: " + now;
             // ...
 
             remoteViews.setCharSequence(R.id.livecard_content, "setText", content);
@@ -217,7 +223,16 @@ public class LiveCardDemoLocalService extends Service
             // Unfortunately, the view does not refresh without this....
             Intent intent = new Intent(context, LiveCardDemoActivity.class);
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
-            liveCard.publish();
+            // Is this if() necessary???? or Is it allowed/ok not to call publish() when updating????
+            if(! liveCard.isPublished()) {
+                liveCard.publish();
+            } else {
+                // ????
+                // According to the doc,
+                // it appears we should call publish() every time the content changes...
+                // But, it seems to work without re-publishing...
+                if(Log.D) Log.d("liveCard not published at " + now);
+            }
         }
     }
 
