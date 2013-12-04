@@ -60,4 +60,12 @@ to display the user's dynamic location on the LiveCard.
 
 
 
+## GDK Sensor Sample Code
+
+The [Sensor Demo directory](https://github.com/harrywye/gdkdemo/tree/master/apidemo/sensordemo)
+includes a number of example apps for using Android Sensor APIs.
+For more information, refer to
+[the GDK doc on Sensors](https://developers.google.com/glass/develop/gdk/location-sensors/index).
+
+
 

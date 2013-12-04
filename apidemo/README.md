@@ -68,3 +68,9 @@ A simple (toy) algorithm is used to get the "best" location information at any g
 
 
 
+## Sensor API Demo
+
+A number of sample Glassware illustrating
+the use of [Android Sensor API](http://developer.android.com/guide/topics/sensors/sensors_overview.html)
+are included in the [Sensor Demo directory](https://github.com/harrywye/gdkdemo/tree/master/apidemo/sensordemo).
+
