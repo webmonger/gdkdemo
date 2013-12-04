@@ -1,1 +1,2 @@
-include ':livecarddemo', ':gesturedemo', ':voicedemo', ':livecarddemo2', ':locationdemo'
+include ':livecarddemo', ':livecarddemo2', ':gesturedemo', ':voicedemo', ':locationdemo', ':sensordemo:motionsensordemo'
+
