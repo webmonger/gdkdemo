@@ -5,6 +5,8 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Handler;
@@ -49,10 +51,19 @@ public class CameraDemoLocalService extends Service
     private final IBinder mBinder = new LocalBinder();
 
 
+    // temporary
+    StrictMode.ThreadPolicy defaultThreadPolicy = null;
+    // temporary
+
+
     @Override
     public void onCreate()
     {
         super.onCreate();
+
+        // temporary
+        defaultThreadPolicy = StrictMode.getThreadPolicy();
+        // temporary
 
         IntentFilter filter = new IntentFilter();
         filter.addAction("android.provider.xxx");   // TBD:..
@@ -100,6 +111,10 @@ public class CameraDemoLocalService extends Service
     {
         Log.d("onServiceStart() called.");
 
+        // temporary
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder(defaultThreadPolicy).permitAll().build());
+        // temporary
+
         // Publish live card...
         publishCard(this);
         if(heartBeat == null) {
@@ -113,17 +128,35 @@ public class CameraDemoLocalService extends Service
     private boolean onServicePause()
     {
         Log.d("onServicePause() called.");
+
+        // temporary
+        if(defaultThreadPolicy != null) {
+            StrictMode.setThreadPolicy(defaultThreadPolicy);
+        }
+        // temporary
+
         return true;
     }
     private boolean onServiceResume()
     {
         Log.d("onServiceResume() called.");
+
+        // temporary
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder(defaultThreadPolicy).permitAll().build());
+        // temporary
+
         return true;
     }
 
     private boolean onServiceStop()
     {
         Log.d("onServiceStop() called.");
+
+        // temporary
+        if(defaultThreadPolicy != null) {
+            StrictMode.setThreadPolicy(defaultThreadPolicy);
+        }
+        // temporary
 
         // TBD:
         // Unpublish livecard here
@@ -221,23 +254,23 @@ public class CameraDemoLocalService extends Service
 
             if(this.currentPhotoFilePath != null) {
                 try {
-                    // temporary
-                    StrictMode.ThreadPolicy old = StrictMode.getThreadPolicy();
-                    StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder(old).permitAll().build());
-                    // temporary
-
                     // ????
                     // What the ????
                     String filePath = this.currentPhotoFilePath;
                     if(this.currentPhotoFilePath.startsWith("/mnt")) {
                         filePath = this.currentPhotoFilePath.substring("/mnt".length());
                     }
-                    Uri photoUri = Uri.parse(filePath);   // ???
-                    remoteViews.setImageViewUri(R.id.livecard_image, photoUri);
 
-                    // temporary
-                    // StrictMode.setThreadPolicy(old);
-                    // temporary
+//                    Uri photoUri = Uri.parse(filePath);   // ???
+//                    remoteViews.setImageViewUri(R.id.livecard_image, photoUri);
+
+                    Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+                    if(bitmap != null) {
+                        remoteViews.setImageViewBitmap(R.id.livecard_image, bitmap);
+                    } else {
+                        if(Log.I) Log.i("Failed to create bitmap from filePath = " + filePath);
+                    }
+
                 } catch(Exception e) {
                     Log.e("Failed to set the remote imageView.", e);
                 }
