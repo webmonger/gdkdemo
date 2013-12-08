@@ -56,6 +56,20 @@ to start the `VoiceDictationActivity`. It can also be activated using the TAP ge
 Tap to start dictation.
 
 
+## Camera Demo
+
+This first demo app using Google Glass Camera
+relies on the stock Camera activity to take photos.
+
+The path of the photo/image file (JPG) is passed to the calling activity, `CameraDemoActivity`, through the extra param, `Camera.EXTRA_PICTURE_FILE_PATH`. 
+The image file at the given path is polled then to check if the file is ready.
+If so, it is converted to a bitmatp and it is displyed in the `ImageView` of the livecard.
+
+    Bitmap bitmap1 = BitmapFactory.decodeFile(filePath);
+    remoteViews.setImageViewBitmap(R.id.livecard_image, bitmap1);
+
+
+
 
 ## Location API Demo
 
