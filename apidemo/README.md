@@ -62,7 +62,7 @@ This first demo app using Google Glass Camera
 relies on the stock Camera activity to take photos.
 
 The path of the photo/image file (JPG) is passed to the calling activity, `CameraDemoActivity`, through the extra param, `Camera.EXTRA_PICTURE_FILE_PATH`. 
-The image file at the given path is polled then to check if the file is ready.
+The image file at the given path is then polled to check if the file is ready.
 If so, it is converted to a bitmatp and it is displyed in the `ImageView` of the livecard.
 
     Bitmap bitmap1 = BitmapFactory.decodeFile(filePath);
