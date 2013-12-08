@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Binder;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.StrictMode;
@@ -19,6 +20,8 @@ import com.gdkdemo.camera.R;
 import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.timeline.TimelineManager;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -179,10 +182,14 @@ public class CameraDemoLocalService extends Service
     // To be called by iBinder clients...
     public void setPhotoFilePath(String currentPhotoFilePath)
     {
-        currentPhotoTime = System.currentTimeMillis();
-        if(Log.D) Log.d("currentPhotoFilePath set to " + currentPhotoFilePath + " at " + currentPhotoTime);
-        this.previousPhotoFilePath = this.currentPhotoFilePath;
-        this.currentPhotoFilePath = currentPhotoFilePath;
+        if(currentPhotoFilePath != null) {
+            currentPhotoTime = System.currentTimeMillis();
+            if(Log.D) Log.d("currentPhotoFilePath set to " + currentPhotoFilePath + " at " + currentPhotoTime);
+            this.previousPhotoFilePath = this.currentPhotoFilePath;
+            this.currentPhotoFilePath = currentPhotoFilePath;
+        } else {
+            if(Log.D) Log.d("Input currentPhotoFilePath = null.");
+        }
     }
 
 
@@ -217,6 +224,7 @@ public class CameraDemoLocalService extends Service
         } else {
             // Card is already published.
 
+//            // temporary
 //            // ????
 //            // Without this (if use "republish" below),
 //            // we will end up with multiple live cards....
@@ -229,7 +237,7 @@ public class CameraDemoLocalService extends Service
             // That means, we should not call getLiveCard() again once the card has been published.
 //            TimelineManager tm = TimelineManager.from(context);
 //            liveCard = tm.getLiveCard(cardId);
-//            liveCard.setNonSilent(true);
+//            liveCard.setNonSilent(false);
             // TBD: The reference to remoteViews can be kept in this service as well....
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_camerademo);
             String content = "";
@@ -245,6 +253,18 @@ public class CameraDemoLocalService extends Service
 
             remoteViews.setCharSequence(R.id.livecard_content, "setText", content);
 
+
+            // temporary
+            File extStorageDir = Environment.getExternalStorageDirectory();
+            if(extStorageDir != null) {
+                if(Log.I) Log.i("extStorageDir = " + extStorageDir);
+            } else {
+                // ??? Can this happen???
+                Log.w("extStorageDir is null.");
+            }
+            // temporary
+
+
             // TBD:
             // Set the image with the "last" photo ...
             // TBD:
@@ -252,24 +272,63 @@ public class CameraDemoLocalService extends Service
             // We will need to use FileObserver or something similar/asynchronous...
             // ...
 
+            Log.w(">>>>>>>>>>>> Before processing image. ");
+
             if(this.currentPhotoFilePath != null) {
                 try {
                     // ????
                     // What the ????
                     String filePath = this.currentPhotoFilePath;
-                    if(this.currentPhotoFilePath.startsWith("/mnt")) {
-                        filePath = this.currentPhotoFilePath.substring("/mnt".length());
-                    }
+//                    if(this.currentPhotoFilePath.startsWith("/mnt")) {
+//                        filePath = this.currentPhotoFilePath.substring("/mnt".length());
+//                    }
 
 //                    Uri photoUri = Uri.parse(filePath);   // ???
 //                    remoteViews.setImageViewUri(R.id.livecard_image, photoUri);
 
-                    Bitmap bitmap = BitmapFactory.decodeFile(filePath);
-                    if(bitmap != null) {
-                        remoteViews.setImageViewBitmap(R.id.livecard_image, bitmap);
-                    } else {
-                        if(Log.I) Log.i("Failed to create bitmap from filePath = " + filePath);
+
+                    // temporary
+                    File photoFile = new File(filePath);
+                    if(! photoFile.exists()) {
+                        Log.e("File does not exist: filePath = " + filePath);
                     }
+                    if(! photoFile.isFile()) {
+                        Log.e("Photo image is not a file: filePath = " + filePath);
+                    }
+
+
+                    Log.w(">>>>>>>>>>>> Before reading the bitmap. ");
+
+
+                    // TBD:
+                    // [1] either this...
+/* */
+                    Bitmap bitmap1 = BitmapFactory.decodeFile(filePath);
+                    if(bitmap1 != null) {
+                        Bitmap bitmap1r = Bitmap.createScaledBitmap(bitmap1, 320, 180, false);
+                        if(Log.D) Log.d("Setting the bitmap in the remote imageView: filePath = " + filePath);
+                        remoteViews.setImageViewBitmap(R.id.livecard_image, bitmap1r);
+                    } else {
+                        if(Log.I) Log.i("Failed to create bitmap from the photo image: filePath = " + filePath);
+                    }
+/* */
+
+                    // TBD:
+                    // [2] or this...
+/*
+                    FileInputStream fis = new FileInputStream(photoFile);
+                    Bitmap bitmap2 = BitmapFactory.decodeStream(fis);
+                    if(bitmap2 != null) {
+                        Bitmap bitmap2r = Bitmap.createScaledBitmap(bitmap2, 320, 180, false);
+                        if(Log.D) Log.d("Setting the bitmap in the remote imageView: filePath = " + filePath);
+                        remoteViews.setImageViewBitmap(R.id.livecard_image, bitmap2r);
+                    } else {
+                        if(Log.I) Log.i("Failed to create bitmap from the file input stream: filePath = " + filePath);
+                    }
+*/
+
+                    Log.w(">>>>>>>>>>>> After reading the bitmap. ");
+
 
                 } catch(Exception e) {
                     Log.e("Failed to set the remote imageView.", e);
@@ -278,6 +337,7 @@ public class CameraDemoLocalService extends Service
                 Log.i("currentPhotoFilePath is not set.");
             }
 
+            Log.w(">>>>>>>>>>>> After processing image. ");
 
             liveCard.setViews(remoteViews);
 
@@ -285,6 +345,10 @@ public class CameraDemoLocalService extends Service
             // Unfortunately, the view does not refresh without this....
             Intent intent = new Intent(context, CameraDemoActivity.class);
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
+
+//            // temporary
+//            liveCard.publish();
+
             // Is this if() necessary???? or Is it allowed/ok not to call publish() when updating????
             if(! liveCard.isPublished()) {
                 liveCard.publish();
@@ -325,7 +389,13 @@ public class CameraDemoLocalService extends Service
                 });
             }
         };
-        heartBeat.schedule(liveCardUpdateTask, 0L, 10000L); // Every 10 seconds...
+        heartBeat.schedule(liveCardUpdateTask, 0L, 15000L); // Every 15 seconds...
     }
+
+
+
+
+
+
 
 }

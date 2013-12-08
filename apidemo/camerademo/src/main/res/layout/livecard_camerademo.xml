@@ -10,10 +10,15 @@
         android:keepScreenOn="true"
         android:textColor="#88eafa"
         android:textStyle="bold"
-        android:textSize="24sp"
-        android:gravity="center"
+        android:textSize="22sp"
+        android:gravity="center|top"
         android:text="@string/camerademo_livecard_content" />
 
+<!--
+        android:layout_width="320dp"
+        android:layout_height="180dp"
+        android:scaleType="fitXY"
+-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
