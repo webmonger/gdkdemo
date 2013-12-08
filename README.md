@@ -39,9 +39,7 @@ for updating the LiveCard content via "low frequency rendering".
 
 This Glassware shows to how to implement
 the [Touch Gesture](https://developers.google.com/glass/develop/gdk/input/touch) input modes.
-The app can be started using the following voice input:
-
-_OK, Glass._ _Start Gesture Demo_
+The app can be started using the following voice input:  _OK, Glass._ _Start Gesture Demo_
 
 
 ## GDK Voice Input Sample Code
@@ -51,6 +49,12 @@ You can start the app via Voice Trigger, _Start Voice Demo..._, followed by the 
 This voice command opens a new activity, 
 which includes the "dictation" function.
 Tap to start dictation.
+
+
+## GDK Camera Sample Code
+
+This GDK demo app illustrates how to use Glass camera to take pictures
+and display the photos on LiveCard.
 
 
 ## GDK Location Sample Code
