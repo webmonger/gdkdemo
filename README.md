@@ -28,11 +28,12 @@ into an IDE such as Android Studio.
 
 ## GDK Live Card Sample Code
 
-The [apidemo](https://github.com/harrywye/gdkdemo/tree/master/apidemo) directory contains two Glass apps
-which demonstrate a simple implementation of the 
+The [apidemo](https://github.com/harrywye/gdkdemo/tree/master/apidemo) directory contains three Glass apps
+which demonstrate simple implementation of the 
 [LiveCard](https://developers.google.com/glass/develop/gdk/ui/live-cards) API.
-The second app, Live Card Demo 2, includes a sample code
-for updating the LiveCard content via "low frequency rendering".
+The apps, Live Card Demos 2 and 3, include sample code
+for updating the LiveCard content via "low frequency rendering"
+and "high freqency rendering", respectively.
 
 
 ## GDK Touch Gesture Sample Code
