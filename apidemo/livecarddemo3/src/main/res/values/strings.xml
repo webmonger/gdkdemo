@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LiveCard Demo</string>
+
+    <string name="livecarddemo3_screen_content">LiveCard Demo is Currently Active\nTap to Stop</string>
+    <string name="livecarddemo3_livecard_content">Live Card:</string>
+
+    <!--  Live CardDemoLocalService  -->
+    <string name="livecarddemo3_localservice_started">LiveCard Demo Service started.</string>
+
+    <!--  For voice input  -->
+    <string name="livecarddemo3_voice_trigger">start live card demo 3</string>
+    <string name="livecarddemo3_voice_prompt">livecard action</string>
+
+</resources>
