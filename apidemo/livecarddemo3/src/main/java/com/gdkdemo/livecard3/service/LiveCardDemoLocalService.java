@@ -256,11 +256,9 @@ public class LiveCardDemoLocalService extends Service implements LiveCardCallbac
     /**
      * Draws the view in the SurfaceHolder's canvas.
      */
-    // private void draw(View view)
     private void draw()
     {
         try {
-            // TBD: Do we need to do this at every draw() call????
             canvas = mHolder.lockCanvas();
         } catch (Exception e) {
             Log.e("Could not draw().", e);
