@@ -31,7 +31,7 @@ _OK, Glass._ _Start Motion Sensor Demo_
 
 ## Position Sensor Demo
 
-This second GDK sensor demo app 
+This second GDK sensor demo app.
 The app "listens" to a position sensor, namely, magnetic field sensor
 via the `SensorEventListener` interface.
 Unlike the the Motion Sensor Demo Glassware, this example app
@@ -43,7 +43,6 @@ You can build this sample Glassware as follows:
     gradle clean build
     adb install -r build/apk/positionsensordemo-release.apk
 
-Then, the voice command to start app is:
-
+Then, the voice command to start app is, 
 _OK, Glass._ _Start Motion Sensor Demo_
 
