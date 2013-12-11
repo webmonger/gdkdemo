@@ -44,5 +44,5 @@ You can build this sample Glassware as follows:
     adb install -r build/apk/positionsensordemo-release.apk
 
 Then, the voice command to start app is, 
-_OK, Glass._ _Start Motion Sensor Demo_
+_OK, Glass._ _Start Position Sensor Demo._
 
