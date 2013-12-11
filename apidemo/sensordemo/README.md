@@ -15,7 +15,7 @@ showing the simple use of these sensors on Glass.
 ## Motion Sensor Demo
 
 This simple Glassware uses a "demo app framework",
-which displays dynamic sensor data on a live card.
+which displays dynamic sensor data on a live card via "low frequency rendering".
 The app "listens" to five motion sensors:
 * Accelerometer
 * Gravity sensor
@@ -24,6 +24,26 @@ The app "listens" to five motion sensors:
 * Rotation vector
 
 You can start the app through the following voice trigger.
+
+_OK, Glass._ _Start Motion Sensor Demo_
+
+
+
+## Position Sensor Demo
+
+This second GDK sensor demo app 
+The app "listens" to a position sensor, namely, magnetic field sensor
+via the `SensorEventListener` interface.
+Unlike the the Motion Sensor Demo Glassware, this example app
+uses a "high frequency live card" to _graphically_ display the magnetic field information.
+
+You can build this sample Glassware as follows:
+
+    cd positionsensordemo
+    gradle clean build
+    adb install -r build/apk/positionsensordemo-release.apk
+
+Then, the voice command to start app is:
 
 _OK, Glass._ _Start Motion Sensor Demo_
 
