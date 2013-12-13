@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gdkdemo.sensor.environmental"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/EnvironmentalSensorDemoTheme" >
+
+        <!-- {1a] Global DB -->
+        <provider android:name="com.gdkdemo.sensor.environmental.cp.data.GdkDemoSensorDemoContentProvider"
+            android:authorities="com.gdkdemo.sensor.environmental.cp.data"
+        />
+
+        <!-- {1b] Entity DBs -->
+        <provider android:name="com.gdkdemo.sensor.environmental.cp.data.sensorvalue.SensorValueContentProvider"
+            android:authorities="com.gdkdemo.sensor.environmental.cp.data.sensorvalue"
+        />
+
+        <service android:name=".service.EnvironmentalSensorDemoLocalService" />
+
+        <activity
+            android:name="com.gdkdemo.sensor.environmental.EnvironmentalSensorDemoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/EnvironmentalSensorDemoTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <!-- For testing -->
+<!--
+                <category android:name="android.intent.category.LAUNCHER" />
+-->
+                <!-- For voice input -->
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/voiceinput_environmentalsensordemo" />
+        </activity>
+
+    </application>
+
+</manifest>

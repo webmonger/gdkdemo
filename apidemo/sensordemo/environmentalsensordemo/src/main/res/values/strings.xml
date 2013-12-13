@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Environmental Sensor Demo</string>
+
+    <string name="environmentalsensordemo_screen_content">Environmental Sensor Demo is Currently Active\nTap to Stop</string>
+    <string name="environmentalsensordemo_livecard_content">Environmental Sensor Data:</string>
+
+    <!--  EnvironmentalSensorDemoLocalService  -->
+    <string name="environmentalsensordemo_localservice_started">Environmental Sensor Demo Service started.</string>
+
+    <!--  For voice input  -->
+    <string name="environmentalsensordemo_voice_trigger">start environmental sensor demo</string>
+    <string name="environmentalsensordemo_voice_prompt">next action</string>
+
+</resources>

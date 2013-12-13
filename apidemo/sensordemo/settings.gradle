@@ -1,2 +1,1 @@
-include ':motionsensordemo', ':positionsensordemo'
-
+include ':motionsensordemo', ':positionsensordemo', ':environmentalsensordemo'
