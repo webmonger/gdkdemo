@@ -46,3 +46,21 @@ You can build this sample Glassware as follows:
 Then, the voice command to start app is, 
 _OK, Glass._ _Start Position Sensor Demo._
 
+
+
+## Environmental Sensor Demo
+
+This third and final sensor demo Glassware illustrates the use of the ambient light sensor on google Glass.
+This sample app is different from its two previous siblings in that it uses a persistent storage
+to store the sensor values.
+When the sensor data is received, it is first stored in the DB through the ContentProvider interface.
+It is then queried on a regular interval, using a `TimerTask`,
+to display the data on the live card.
+
+Note that all classes under the `cp` directory is auto-generated,
+and they are not really part of the "sample code".
+They are mainly used for the DB - ContentProvider implementation,
+which is not the integral part of this "demo app".
+
+Use the phrase _Start Environmental Sensor Demo_ to start the app.
+
