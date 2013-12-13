@@ -57,7 +57,7 @@ When the sensor data is received, it is first stored in the DB through the Conte
 It is then queried on a regular interval, using a `TimerTask`,
 to display the data on the live card.
 
-Note that all classes under the `cp` directory is auto-generated,
+Note that all classes under the `cp` directory have been auto-generated (using old/by-now-outdated templates),
 and they are not really part of the "sample code".
 They are mainly used for the DB - ContentProvider implementation,
 which is not the integral part of this "demo app".
