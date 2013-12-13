@@ -342,6 +342,13 @@ public class EnvironmentalSensorDemoLocalService extends Service implements Sens
         if(lastSensorValuesLight != null) {
             long now = System.currentTimeMillis();
             float[] val = lastSensorValuesLight.getValues();
+            if(val == null || val.length == 0) {
+                // ????
+                // Can this happen???
+                // If this happens, there is no point of saving the entry.
+                Log.e("lastSensorValuesLight has no value!");
+                return;
+            }
 
             // Save...
             ContentValues contentValues = new ContentValues();
@@ -349,15 +356,19 @@ public class EnvironmentalSensorDemoLocalService extends Service implements Sens
             contentValues.put(SensorValueData.SensorValues.GUID, GUID.generate());
             contentValues.put(SensorValueData.SensorValues.TYPE, Sensor.TYPE_LIGHT);
             contentValues.put(SensorValueData.SensorValues.ACCURACY, lastSensorValuesLight.getAccuracy());
-            if(val != null && val.length > 0) {
+            // if(val != null && val.length > 0) {
                 if(Log.D) Log.d("Sensor value = " + val[0]);
                 // TBD: What is this value 0.0???
+                //      When does this happen????
                 //      Do not save the entry if val[0] == 0.0 ????
                 if(val[0] == 0.0f) {
                     Log.w("Invalid sensor value: 0.0. Skipping this record.");
                     return;
                 }
                 contentValues.put(SensorValueData.SensorValues.VAL0, val[0]);
+                // Light sensor value is a scalar... --> only val[0] is used...
+                // The following is not really needed.
+                // (Also, val.length should always, I presume, be 4, and hence the if() checks are not needed.)
                 if(val.length > 1) {
                     contentValues.put(SensorValueData.SensorValues.VAL1, val[1]);
                     if(val.length > 2) {
@@ -367,7 +378,7 @@ public class EnvironmentalSensorDemoLocalService extends Service implements Sens
                         }
                     }
                 }
-            }
+            // }
             contentValues.put(SensorValueData.SensorValues.TIMESTAMP, lastSensorValuesLight.getTimestamp());
             contentValues.put(SensorValueData.SensorValues.CREATEDTIME, now);
             contentValues.put(SensorValueData.SensorValues.MODIFIEDTIME, 0L);
