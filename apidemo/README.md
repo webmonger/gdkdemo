@@ -31,7 +31,7 @@ from which tapping one more will exit the program (after removing the live card,
 
 This demo app includes
 sample code for the ["high frequency Live Cards"](https://developers.google.com/glass/develop/gdk/ui/live-cards).
-It uses an Ancroid local service which
+It uses an Android local service which
 implements the [LiveCardCallback](https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/timeline/LiveCardCallback) interface 
 to draw on the card's canvas.
 
