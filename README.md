@@ -24,6 +24,18 @@ You can also import any of the Glassware projects
 into an IDE such as Android Studio.
 
 
+
+## Frequently Asked Questions
+
+* Should I fork the GDK Demo repository?
+* How do I "sync" my forked repo with GDK Demo?
+
+Here's my thought on these questions:
+[Git for GDK Glassware Developers](http://blog.glassdiary.com/post/70034111310/git-for-gdk-glassware-developers).
+
+
+
+
 # API Demo
 
 ## GDK Live Card Sample Code
@@ -71,6 +83,21 @@ The [Sensor Demo directory](https://github.com/harrywye/gdkdemo/tree/master/apid
 includes a number of example apps for using Android Sensor APIs.
 For more information, refer to
 [the GDK doc on Sensors](https://developers.google.com/glass/develop/gdk/location-sensors/index).
+
+
+
+
+# GDK Tutorials
+
+_Coming soon..._
+
+
+
+# Google Glass Sample Apps
+
+_Coming soon..._
+
+
 
 
 
