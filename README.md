@@ -40,7 +40,7 @@ Here's my thought on these questions:
 
 ## GDK Live Card Sample Code
 
-The [apidemo](https://github.com/harrywye/gdkdemo/tree/master/apidemo) directory contains three Glass apps
+The [apidemo](https://github.com/harrywye/gdkdemo/tree/master/apidemo) directory contains a number of Glass apps
 which demonstrate simple implementation of the 
 [LiveCard](https://developers.google.com/glass/develop/gdk/ui/live-cards) API.
 The apps, Live Card Demos 2 and 3, include sample code
@@ -83,6 +83,10 @@ The [Sensor Demo directory](https://github.com/harrywye/gdkdemo/tree/master/apid
 includes a number of example apps for using Android Sensor APIs.
 For more information, refer to
 [the GDK doc on Sensors](https://developers.google.com/glass/develop/gdk/location-sensors/index).
+
+
+_Note:_ The README file in the [apidemo](https://github.com/harrywye/gdkdemo/tree/master/apidemo) directory
+contains a complete list of sample Glass apps.
 
 
 
