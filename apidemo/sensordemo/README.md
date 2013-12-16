@@ -28,6 +28,9 @@ You can start the app through the following voice trigger.
 _OK, Glass._ _Start Motion Sensor Demo_
 
 
+_Blog Post:_ [Google Glass Development Kit (GDK) Sample Code - Motion Sensor Demo](http://blog.glassdiary.com/post/68954384185/google-glass-development-kit-gdk-sample-code-motion).
+
+
 
 ## Position Sensor Demo
 
@@ -47,6 +50,9 @@ Then, the voice command to start app is,
 _OK, Glass._ _Start Position Sensor Demo._
 
 
+_Blog Post:_ [Google GDK Sample Glassware - Position Sensor Demo](http://blog.glassdiary.com/post/69728978780/google-gdk-sample-glassware-position-sensor-demo).
+
+
 
 ## Environmental Sensor Demo
 
@@ -63,4 +69,8 @@ They are mainly used for the DB - ContentProvider implementation,
 which is not the integral part of this "demo app".
 
 Use the phrase _Start Environmental Sensor Demo_ to start the app.
+
+
+_Blog Post:_ [Environmental Sensor Demo App on Google Glass using GDK](http://blog.glassdiary.com/post/69919980966/environmental-sensor-demo-app-on-google-glass-using-gdk).
+
 
