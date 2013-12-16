@@ -42,7 +42,7 @@ to draw on the card's canvas.
 
 The sample app merely draws the solid bacground with a random/time-changing color.
 
-_Blog Post:_ []().
+_Blog Post:_ [Google Glass GDK Live Card Surface Rendering Example](http://blog.glassdiary.com/post/69539795521/google-glass-gdk-live-card-surface-rendering-example).
 
 
 
