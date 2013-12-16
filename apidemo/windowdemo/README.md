@@ -17,3 +17,5 @@ Start the demo app via the following voice command:
 
     OK, Glass. Start Menu Demo.
 
+_Blog Post:_ [Google GDK Live Card Menu Example](http://blog.glassdiary.com/post/70229015767/google-gdk-live-card-menu-example).
+
