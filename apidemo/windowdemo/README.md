@@ -1,4 +1,4 @@
-Google Glass Development Kit - Window Demos
+Glass Development Kit - Window Demos
 =======
 
 Collection of Sample GDK apps related to general Glassware UI.
