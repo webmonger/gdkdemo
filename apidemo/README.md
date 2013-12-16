@@ -13,6 +13,9 @@ The lifecycle of the LiveCard is associated with that of a background Service (`
 It also shows how to add a menu to a LiveCard, 
 which is bound to the main activity.
 
+_Blog Post:_ [GDK LiveCard Sample Code](http://blog.glassdiary.com/post/67643976351/gdk-livecard-sample-code).
+
+
 
 ## Live Card Demo 2
 
@@ -26,6 +29,8 @@ in that it sets the "NonSlient" flag to true.
 If you want to stop the app, tap the LiveCard screen to go back to the main Activity screen,
 from which tapping one more will exit the program (after removing the live card, etc.)
 
+_Blog Post:_ [Google GDK Playground: Live Card Example 2 - Low Frequency Rendering](http://blog.glassdiary.com/post/68019125742/google-gdk-playground-live-card-example-2-low).
+
 
 ## Live Card Demo 3
 
@@ -36,6 +41,8 @@ implements the [LiveCardCallback](https://developers.google.com/glass/develop/gd
 to draw on the card's canvas.
 
 The sample app merely draws the solid bacground with a random/time-changing color.
+
+_Blog Post:_ []().
 
 
 
@@ -54,6 +61,9 @@ You can start the app through the following voice input.
 _OK, Glass._ _Start Gesture Demo_
 
 
+_Blog Post:_ [Glass Development Kit Sample Code - Touch Gesture Detector](http://blog.glassdiary.com/post/67789851142/glass-development-kit-sample-code-touch-gesture).
+
+
 ## Voice Input Demo
 
 This demo app includes two activities: 
@@ -66,6 +76,9 @@ speak _dictate_ at the voice prompt, "next action",
 to start the `VoiceDictationActivity`. It can also be activated using the TAP gesture.
 
 Tap to start dictation.
+
+_Blog Post:_ [Google Glass GDK Sample Code - Voice Input Demo Application](http://blog.glassdiary.com/post/67878988264/google-glass-gdk-sample-code-voice-input-demo).
+
 
 
 ## Camera Demo
@@ -80,6 +93,10 @@ If so, it is converted to a bitmatp and it is displyed in the `ImageView` of the
     Bitmap bitmap1 = BitmapFactory.decodeFile(filePath);
     remoteViews.setImageViewBitmap(R.id.livecard_image, bitmap1);
 
+_Blog Posts:_ 
+
+* [Google Glass GDK Camera API Sample](http://blog.glassdiary.com/post/69155251863/google-glass-gdk-camera-api-sample).
+* [GDK Camera Demo: How to Display Dynamic Image Content on Live Card Using RemoteViews API](http://blog.glassdiary.com/post/69322026138/gdk-camera-demo-how-to-display-dynamic-image-content).
 
 
 
@@ -92,6 +109,7 @@ The location is dynamically updated based on the data supplied by a number of lo
 
 A simple (toy) algorithm is used to get the "best" location information at any given time.
 
+_Blog Post:_ [Glassware GDK Code Example - Location API Demo](http://blog.glassdiary.com/post/68508701710/glassware-gdk-code-example-location-api-demo).
 
 
 ## Sensor API Demo
