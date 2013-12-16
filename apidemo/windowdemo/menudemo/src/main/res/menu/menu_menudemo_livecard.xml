@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_stop_menudemo_livecard"
+        android:title="@string/menu_item_stop_menudemo_livecard"
+        android:icon="@drawable/menu_item_icon_stop_livecard" />
+    <item
+        android:id="@+id/menu_goto_menudemo_main"
+        android:title="@string/menu_item_goto_menudemo_main"
+        android:icon="@drawable/menu_item_icon_goto_main" />
+</menu>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Menu Demo</string>
+
+    <string name="menudemo_screen_content">Menu Demo\nIs Now Active</string>
+    <string name="menudemo_livecard_content">Menu Demo\nIs Currently Active</string>
+
+    <string name="livecard_menu_activity_title">Menu</string>
+    <string name="livecard_menu_screen_content">Live Card Menu</string>
+
+    <!--  MenuDemoLocalService  -->
+    <string name="menudemo_localservice_started">Menu Demo Service started.</string>
+
+    <!--  For voice input  -->
+    <string name="menudemo_voice_trigger">start menu demo</string>
+    <string name="menudemo_voice_prompt">next action</string>
+
+    <!--  For menu  -->
+    <string name="menu_item_stop_menudemo_livecard">Stop</string>
+    <string name="menu_item_goto_menudemo_main">Go To Main</string>
+
+</resources>
