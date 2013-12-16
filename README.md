@@ -27,7 +27,7 @@ into an IDE such as Android Studio.
 
 ## Frequently Asked Questions
 
-* Should I fork the GDK Demo repository?
+* Should I fork the GDK Demo repository or just clone it?
 * How do I "sync" my forked repo with GDK Demo?
 
 Here's my thought on these questions:
