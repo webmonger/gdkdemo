@@ -4,7 +4,7 @@ Glass Development Kit - Window Demos
 Collection of Sample GDK apps related to general Glassware UI.
 
 
-## Menu Demo
+## Live Card Menu Demo
 
 Google Glass GDK developer doc shows how to create a menu for a live card.
 
