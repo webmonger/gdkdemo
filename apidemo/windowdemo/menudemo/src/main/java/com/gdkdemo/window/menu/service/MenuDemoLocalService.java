@@ -129,7 +129,8 @@ public class MenuDemoLocalService extends Service
             liveCard.setViews(remoteViews);
             Intent intent = new Intent(context, LiveCardMenuActivity.class);
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
-            liveCard.publish(LiveCard.PublishMode.REVEAL);
+//            liveCard.publish(LiveCard.PublishMode.REVEAL);
+            liveCard.publish(LiveCard.PublishMode.SILENT);
         } else {
             // Card is already published.
             return;

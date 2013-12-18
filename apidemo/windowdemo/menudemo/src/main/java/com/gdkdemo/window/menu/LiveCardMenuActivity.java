@@ -99,10 +99,17 @@ public class LiveCardMenuActivity extends Activity
 
 
     // Opens the "main" (voice launcher) activity.
+    // TBD: Does this work?
+    // This seems to open the activity "on top of the live card"
+    //    (based on the behavior when the activity is dismissed).
+    // How to open an activity "on top of the clock screen" ????
     private void gotoMain()
     {
         Intent intent = new Intent(this, MenuDemoActivity.class);
-        startActivity(intent);
+        // ???
+        startActivity(intent.setFlags(    // Intent.FLAG_ACTIVITY_NEW_TASK |
+                Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                Intent.FLAG_ACTIVITY_SINGLE_TOP));
     }
 
     // Stops the service that published the livecard.
