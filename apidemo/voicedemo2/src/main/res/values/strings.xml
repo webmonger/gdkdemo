@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Voice Demo 2</string>
+
+    <string name="voicedemo2_screen_content">First Voice Demo Activity</string>
+    <string name="voicedemo2_second_screen_content">Second Voice Demo Activity</string>
+
+    <string name="title_activity_voicedemo2">Voice Demo 2</string>
+    <string name="title_activity_voicedemo2_second">Second Voice Demo 2</string>
+
+    <!--  For voice input  -->
+    <string name="voicedemo2_voice_trigger">start voice demo 2</string>
+    <string name="voicedemo2_voice_prompt">next action</string>
+    <string name="voicedemo2_second_voice_trigger">start second voice demo activity</string>
+    <string name="voicedemo2_second_voice_prompt">next action</string>
+
+</resources>
