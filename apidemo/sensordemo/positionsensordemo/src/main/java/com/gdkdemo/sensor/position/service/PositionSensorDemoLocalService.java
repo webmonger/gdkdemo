@@ -19,13 +19,13 @@ import android.view.SurfaceHolder;
 import com.gdkdemo.sensor.position.PositionSensorDemoActivity;
 import com.gdkdemo.sensor.position.common.SensorValueStruct;
 import com.google.android.glass.timeline.LiveCard;
-import com.google.android.glass.timeline.LiveCardCallback;
+import com.google.android.glass.timeline.DirectRenderingCallback;
 import com.google.android.glass.timeline.TimelineManager;
 
 import java.util.Random;
 
 
-public class PositionSensorDemoLocalService extends Service implements LiveCardCallback, SensorEventListener
+public class PositionSensorDemoLocalService extends Service implements DirectRenderingCallback, SensorEventListener
 {
     // For live card
     private static final String cardId = "positionsensor_card";
@@ -178,17 +178,17 @@ public class PositionSensorDemoLocalService extends Service implements LiveCardC
         // if (liveCard == null || !liveCard.isPublished()) {
         if (liveCard == null) {
             TimelineManager tm = TimelineManager.from(context);
-            liveCard = tm.getLiveCard(cardId);
-            // liveCard.setNonSilent(false);       // Initially keep it silent ???
-            liveCard.setNonSilent(true);      // for testing, it's more convenient. Bring the card to front, at least initially.
+            liveCard = tm.createLiveCard(cardId);
+//             // liveCard.setNonSilent(false);       // Initially keep it silent ???
+//             liveCard.setNonSilent(true);      // for testing, it's more convenient. Bring the card to front, at least initially.
 
             // Enable direct rendering.
-            liveCard.enableDirectRendering(true);
+            liveCard.setDirectRenderingEnabled(true);
             liveCard.getSurfaceHolder().addCallback(this);
 
             Intent intent = new Intent(context, PositionSensorDemoActivity.class);
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
-            liveCard.publish();
+            liveCard.publish(LiveCard.PublishMode.REVEAL);
         } else {
             // Card is already published.
             return;

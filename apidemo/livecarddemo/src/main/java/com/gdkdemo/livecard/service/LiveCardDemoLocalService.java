@@ -140,13 +140,13 @@ public class LiveCardDemoLocalService extends Service
         if (liveCard == null) {
             String cardId = "livecarddemo_card";
             TimelineManager tm = TimelineManager.from(context);
-            liveCard = tm.getLiveCard(cardId);
+            liveCard = tm.createLiveCard(cardId);
 
             liveCard.setViews(new RemoteViews(context.getPackageName(),
                     R.layout.livecard_livecarddemo));
             Intent intent = new Intent(context, LiveCardDemoActivity.class);
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
-            liveCard.publish();
+            liveCard.publish(LiveCard.PublishMode.SILENT);
         } else {
             // Card is already published.
             return;

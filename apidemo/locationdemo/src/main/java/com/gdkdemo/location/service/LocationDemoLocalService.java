@@ -207,8 +207,8 @@ public class LocationDemoLocalService extends Service
             TimelineManager tm = TimelineManager.from(context);
             if(liveCard == null) {
             // if(liveCard == null || ! liveCard.isPublished()) {
-                liveCard = tm.getLiveCard(cardId);
-                liveCard.setNonSilent(true);       // for testing.
+                liveCard = tm.createLiveCard(cardId);
+//                 liveCard.setNonSilent(true);       // for testing.
             }
             // TBD: The reference to remoteViews can be kept in this service as well....
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_locationdemo);
@@ -229,7 +229,7 @@ public class LocationDemoLocalService extends Service
             // "java.lang.IllegalStateException: State CREATED expected, currently in PUBLISHED"
             // Why???
             if(! liveCard.isPublished()) {
-                liveCard.publish();
+                liveCard.publish(LiveCard.PublishMode.REVEAL);
             } else {
                 // ????
                 // According to the GDK doc,

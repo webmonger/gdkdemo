@@ -201,13 +201,13 @@ public class CameraDemoLocalService extends Service
         // if (liveCard == null || !liveCard.isPublished()) {
         if (liveCard == null) {
             TimelineManager tm = TimelineManager.from(context);
-            liveCard = tm.getLiveCard(cardId);
-            liveCard.setNonSilent(false);       // the livecard runs in the "background" only.
+            liveCard = tm.createLiveCard(cardId);
+//             liveCard.setNonSilent(false);       // the livecard runs in the "background" only.
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_camerademo);
             liveCard.setViews(remoteViews);
             Intent intent = new Intent(context, CameraDemoActivity.class);
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
-            liveCard.publish();
+            liveCard.publish(LiveCard.PublishMode.SILENT);
         } else {
             // Card is already published.
             return;
@@ -236,7 +236,7 @@ public class CameraDemoLocalService extends Service
             //       contrary to my expectation based on the method name (sort of a creator/factory method).
             // That means, we should not call getLiveCard() again once the card has been published.
 //            TimelineManager tm = TimelineManager.from(context);
-//            liveCard = tm.getLiveCard(cardId);
+//            liveCard = tm.createLiveCard(cardId);
 //            liveCard.setNonSilent(false);
             // TBD: The reference to remoteViews can be kept in this service as well....
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_camerademo);
@@ -351,7 +351,7 @@ public class CameraDemoLocalService extends Service
 
             // Is this if() necessary???? or Is it allowed/ok not to call publish() when updating????
             if(! liveCard.isPublished()) {
-                liveCard.publish();
+                liveCard.publish(LiveCard.PublishMode.SILENT);
             } else {
                 // ????
                 // According to the doc,

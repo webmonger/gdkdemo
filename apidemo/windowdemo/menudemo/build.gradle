@@ -59,5 +59,6 @@ dependencies {
 	// 
 	// 
 
+    compile fileTree(dir: '../../gdk/libs', include: '*.jar')
     compile fileTree(dir: 'libs', include: '*.jar')
 }

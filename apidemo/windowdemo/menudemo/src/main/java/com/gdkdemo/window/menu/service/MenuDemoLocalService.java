@@ -122,14 +122,14 @@ public class MenuDemoLocalService extends Service
         // if (liveCard == null || !liveCard.isPublished()) {
         if (liveCard == null) {
             TimelineManager tm = TimelineManager.from(context);
-            liveCard = tm.getLiveCard(cardId);
-            // liveCard.setNonSilent(false);       // Initially keep it silent ???
-            liveCard.setNonSilent(true);      // for testing, it's more convenient. Bring the card to front.
+            liveCard = tm.createLiveCard(cardId);
+//             // liveCard.setNonSilent(false);       // Initially keep it silent ???
+//             liveCard.setNonSilent(true);      // for testing, it's more convenient. Bring the card to front.
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_menudemo);
             liveCard.setViews(remoteViews);
             Intent intent = new Intent(context, LiveCardMenuActivity.class);
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
-            liveCard.publish();
+            liveCard.publish(LiveCard.PublishMode.REVEAL);
         } else {
             // Card is already published.
             return;

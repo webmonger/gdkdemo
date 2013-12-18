@@ -174,14 +174,14 @@ public class EnvironmentalSensorDemoLocalService extends Service implements Sens
         // if (liveCard == null || !liveCard.isPublished()) {
         if (liveCard == null) {
             TimelineManager tm = TimelineManager.from(context);
-            liveCard = tm.getLiveCard(cardId);
-            // liveCard.setNonSilent(false);       // Initially keep it silent ???
-            liveCard.setNonSilent(true);      // for testing, it's more convenient. Bring the card to front.
+            liveCard = tm.createLiveCard(cardId);
+//             // liveCard.setNonSilent(false);       // Initially keep it silent ???
+//             liveCard.setNonSilent(true);      // for testing, it's more convenient. Bring the card to front.
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_environmentalsensordemo);
             liveCard.setViews(remoteViews);
             Intent intent = new Intent(context, EnvironmentalSensorDemoActivity.class);
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
-            liveCard.publish();
+            liveCard.publish(LiveCard.PublishMode.REVEAL);
         } else {
             // Card is already published.
             return;
@@ -209,7 +209,7 @@ public class EnvironmentalSensorDemoLocalService extends Service implements Sens
             //       contrary to my expectation based on the method name (sort of a creator/factory method).
             // That means, we should not call getLiveCard() again once the card has been published.
 //            TimelineManager tm = TimelineManager.from(context);
-//            liveCard = tm.getLiveCard(cardId);
+//            liveCard = tm.createLiveCard(cardId);
 //            liveCard.setNonSilent(true);       // Bring it to front.
             // TBD: The reference to remoteViews can be kept in this service as well....
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_environmentalsensordemo);
@@ -263,7 +263,7 @@ public class EnvironmentalSensorDemoLocalService extends Service implements Sens
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
             // Is this if() necessary???? or Is it allowed/ok not to call publish() when updating????
             if(! liveCard.isPublished()) {
-                liveCard.publish();
+                liveCard.publish(LiveCard.PublishMode.REVEAL);
             } else {
                 // ????
                 // According to the doc,

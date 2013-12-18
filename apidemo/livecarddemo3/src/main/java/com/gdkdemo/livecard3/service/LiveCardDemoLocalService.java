@@ -14,7 +14,7 @@ import android.view.SurfaceHolder;
 
 import com.gdkdemo.livecard3.LiveCardDemoActivity;
 import com.google.android.glass.timeline.LiveCard;
-import com.google.android.glass.timeline.LiveCardCallback;
+import com.google.android.glass.timeline.DirectRenderingCallback;
 import com.google.android.glass.timeline.TimelineManager;
 
 import java.util.Random;
@@ -22,7 +22,7 @@ import java.util.Random;
 
 // Sample code based on the GDK doc:
 //    https://developers.google.com/glass/develop/gdk/ui/live-cards
-public class LiveCardDemoLocalService extends Service implements LiveCardCallback
+public class LiveCardDemoLocalService extends Service implements DirectRenderingCallback
 {
     // For live card
     private static final String cardId = "livecarddemo3_card";
@@ -177,17 +177,17 @@ public class LiveCardDemoLocalService extends Service implements LiveCardCallbac
         // if (liveCard == null || !liveCard.isPublished()) {
         if (liveCard == null) {
             TimelineManager tm = TimelineManager.from(context);
-            liveCard = tm.getLiveCard(cardId);
-            // liveCard.setNonSilent(false);       // Initially keep it silent ???
-            liveCard.setNonSilent(true);      // for testing, it's more convenient. Bring the card to front, at least initially.
+            liveCard = tm.createLiveCard(cardId);
+//             // liveCard.setNonSilent(false);       // Initially keep it silent ???
+//             liveCard.setNonSilent(true);      // for testing, it's more convenient. Bring the card to front, at least initially.
 
             // Enable direct rendering.
-            liveCard.enableDirectRendering(true);
+            liveCard.setDirectRenderingEnabled(true);
             liveCard.getSurfaceHolder().addCallback(this);
 
             Intent intent = new Intent(context, LiveCardDemoActivity.class);
             liveCard.setAction(PendingIntent.getActivity(context, 0, intent, 0));
-            liveCard.publish();
+            liveCard.publish(LiveCard.PublishMode.REVEAL);
         } else {
             // Card is already published.
             return;

@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 
 import com.gdkdemo.camera.service.CameraDemoLocalService;
-import com.google.android.glass.media.Camera;
+import com.google.android.glass.media.CameraManager;
 import com.google.android.glass.touchpad.Gesture;
 import com.google.android.glass.touchpad.GestureDetector;
 
@@ -128,10 +128,10 @@ public class CameraDemoActivity extends Activity
                     if(extras != null) {
                         // Note: Apparently there is currently a bug.
                         // https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/media/Camera#EXTRA_THUMBNAIL_FILE_PATH
-                        String thumbnailFilePath = extras.getString(Camera.EXTRA_THUMBNAIL_FILE_PATH);
+                        String thumbnailFilePath = extras.getString(CameraManager.EXTRA_THUMBNAIL_FILE_PATH);
                         if(Log.I) Log.i("thumbnailFilePath = " + thumbnailFilePath);
 
-                        String pictureFilePath = extras.getString(Camera.EXTRA_PICTURE_FILE_PATH);
+                        String pictureFilePath = extras.getString(CameraManager.EXTRA_PICTURE_FILE_PATH);
                         if(Log.D) Log.d("pictureFilePath = " + pictureFilePath);
 
                         // TBD:

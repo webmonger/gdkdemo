@@ -183,8 +183,8 @@ public class MotionSensorDemoLocalService extends Service implements SensorEvent
             if(liveCard == null) {
             // if(liveCard == null || ! liveCard.isPublished()) {
                 TimelineManager tm = TimelineManager.from(context);
-                liveCard = tm.getLiveCard(cardId);
-                liveCard.setNonSilent(true);       // for testing.
+                liveCard = tm.createLiveCard(cardId);
+//                 liveCard.setNonSilent(true);       // for testing.
             }
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.livecard_motionsensordemo);
             String content = "";
@@ -214,7 +214,7 @@ public class MotionSensorDemoLocalService extends Service implements SensorEvent
             // "java.lang.IllegalStateException: State CREATED expected, currently in PUBLISHED"
             // Why???
             if(! liveCard.isPublished()) {
-                liveCard.publish();
+                liveCard.publish(LiveCard.PublishMode.REVEAL);
             } else {
                 // ????
                 // According to the GDK doc,
