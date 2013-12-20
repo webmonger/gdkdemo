@@ -9,6 +9,7 @@ public final class VoiceDemoConstants
 
     // Action commands.
     public static final String ACTION_START_MAIN_ACTIVITY = "main activity";
+    public static final String ACTION_START_FIRST_ACTIVITY = "first activity";
     public static final String ACTION_START_SECOND_ACTIVITY = "second activity";
     public static final String ACTION_STOP_VOICEDEMO = "stop voice demo";
     // ...

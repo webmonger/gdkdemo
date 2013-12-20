@@ -78,9 +78,11 @@ public class VoiceDemoSecondActivity extends Activity
     private void processVoiceAction(String voiceAction)
     {
         if(voiceAction != null) {
-            if(voiceAction.equals(VoiceDemoConstants.ACTION_START_MAIN_ACTIVITY)) {
+            if(voiceAction.equals(VoiceDemoConstants.ACTION_START_MAIN_ACTIVITY)
+            || voiceAction.equals(VoiceDemoConstants.ACTION_START_FIRST_ACTIVITY)) {
                 Log.i("Starting VoiceDemo2 main activity.");
                 openVoiceDemoMainActivity();
+                this.finish();   // ???
             } else if(voiceAction.equals(VoiceDemoConstants.ACTION_START_SECOND_ACTIVITY)) {
                 Log.i("VoiceDemo2 second activity is being started.");
             } else if(voiceAction.equals(VoiceDemoConstants.ACTION_STOP_VOICEDEMO)) {
