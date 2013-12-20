@@ -81,6 +81,16 @@ _Blog Post:_ [Google Glass GDK Sample Code - Voice Input Demo Application](http:
 
 
 
+## Voice Input Demo 2
+
+This is a simple extension of the first Voice Input Demo app.
+It includes two voice trigger-enabled activities
+to demonstrate the use of multiple voice trigger commands.
+
+_Blog Post:_ [GDK Voice Trigger Sample App](http://blog.glassdiary.com/post/70365887264/gdk-voice-trigger-sample-app).
+
+
+
 ## Camera Demo
 
 This first demo app using Google Glass Camera
