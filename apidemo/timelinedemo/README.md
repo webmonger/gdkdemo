@@ -17,5 +17,5 @@ You can start the demo app via the following voice trigger:
 
     OK, Glass. Start Static Card Demo.
 
-_Blog Post:_ []().
+_Blog Post:_ [GDK Sneak Peek Revision 2 - Static Card Example](http://blog.glassdiary.com/post/70613020693/google-glass-gdk-sneak-peek-revision-2-static-card).
 
