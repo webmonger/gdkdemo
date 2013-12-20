@@ -1,3 +1,4 @@
-include ':livecarddemo', ':livecarddemo2', ':livecarddemo3', ':gesturedemo', ':voicedemo', ':locationdemo', ':sensordemo:motionsensordemo', ':sensordemo:positionsensordemo', ':sensordemo:environmentalsensordemo', ':camerademo', ':windowdemo:menudemo' 
-include ':voicedemo2'
+include ':livecarddemo', ':livecarddemo2', ':livecarddemo3', ':gesturedemo', ':voicedemo', ':voicedemo2', ':locationdemo', ':sensordemo:motionsensordemo', ':sensordemo:positionsensordemo', ':sensordemo:environmentalsensordemo', ':camerademo', ':windowdemo:menudemo' 
+include ':timelinedemo:staticcarddemo'
+
 

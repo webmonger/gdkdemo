@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Static Card Demo</string>
+    <string name="staticcarddemo_screen_content">Static Card Demo Is Active</string>
+
+    <string name="staticcarddemo_staticcard_content">Static Card</string>
+
+    <!--  For voice input  -->
+    <string name="staticcarddemo_voice_trigger">start static card demo</string>
+
+</resources>
