@@ -112,11 +112,17 @@ A simple (toy) algorithm is used to get the "best" location information at any g
 _Blog Post:_ [Glassware GDK Code Example - Location API Demo](http://blog.glassdiary.com/post/68508701710/glassware-gdk-code-example-location-api-demo).
 
 
+
 ## Sensor API Demo
 
 A number of sample Glassware illustrating
 the use of [Android Sensor API](http://developer.android.com/guide/topics/sensors/sensors_overview.html)
 are included in the [Sensor Demo directory](https://github.com/harrywye/gdkdemo/tree/master/apidemo/sensordemo).
+
+
+## Timeline Demo
+
+The GDK examples in this [Timeline Demo direcotry](https://github.com/harrywye/gdkdemo/tree/master/apidemo/timelinedemo) are mostely related to `TimelineManager` or other classes such as `Card` which are relevant to timeline. 
 
 
 
