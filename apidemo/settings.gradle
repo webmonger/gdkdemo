@@ -1,16 +1,1 @@
 include ':livecarddemo', ':livecarddemo2', ':livecarddemo3', ':gesturedemo', ':voicedemo', ':voicedemo2', ':locationdemo', ':sensordemo:motionsensordemo', ':sensordemo:positionsensordemo', ':sensordemo:environmentalsensordemo', ':camerademo', ':windowdemo:menudemo', ':timelinedemo:staticcarddemo'
-include ':timelinedemo:staticcarddemo2'
-
-
-/*
-include ':timelinedemo:staticcarddemo3', ':timelinedemo:staticcarddemo4'
-
-include ':livecarddemo4'
-include ':camerademo2'
-
-include ':animationdemo:propertyanimationdemo'
-include ':clouddemo:restapidemo'
-include ':connectivitydemo:bluetoothdemo', ':connectivitydemo:wifidemo'
-include ':widgetdemo:cardscrolldemo', ':widgetdemo:scrollviewdemo'
-include ':screencapturedemo'
-*/
