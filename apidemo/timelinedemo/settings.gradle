@@ -1,2 +1,5 @@
 include ':staticcarddemo'
 
+include ':staticcarddemo2'
+include ':staticcarddemo3'
+include ':staticcarddemo4'
