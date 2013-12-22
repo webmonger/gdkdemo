@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_staticcarddemo2_insert_card_text"
+        android:title="@string/menu_item_insert_card_text"
+        android:icon="@drawable/menu_item_icon_insert_card" />
+    <item
+        android:id="@+id/menu_staticcarddemo2_insert_card_image_full"
+        android:title="@string/menu_item_insert_card_image_full"
+        android:icon="@drawable/menu_item_icon_insert_card" />
+    <item
+        android:id="@+id/menu_staticcarddemo2_insert_card_image_left"
+        android:title="@string/menu_item_insert_card_image_left"
+        android:icon="@drawable/menu_item_icon_insert_card" />
+    <item
+        android:id="@+id/menu_staticcarddemo2_stop_activity"
+        android:title="@string/menu_item_stop_activity"
+        android:icon="@drawable/menu_item_icon_stop" />
+</menu>

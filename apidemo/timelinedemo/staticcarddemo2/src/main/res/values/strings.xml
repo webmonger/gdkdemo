@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Static Card Demo 2</string>
+    <string name="staticcarddemo2_screen_content">Static Card Demo 2 Is Active</string>
+
+    <!--  For static card content  -->
+    <string name="staticcarddemo2_staticcard_content">Static Card</string>
+    <string name="staticcarddemo2_staticcard_text">Text Card</string>
+    <string name="staticcarddemo2_staticcard_image_full">Image Card (Full Screen)</string>
+    <string name="staticcarddemo2_staticcard_image_left">Image Card (Left Side)</string>
+
+    <!--  For voice input  -->
+    <string name="staticcarddemo2_voice_trigger">start static card demo 2</string>
+
+    <!--  For menu  -->
+    <string name="menu_item_insert_card_text">Text Card</string>
+    <string name="menu_item_insert_card_image_full">Full-Screen Image</string>
+    <string name="menu_item_insert_card_image_left">Images on Left</string>
+    <string name="menu_item_stop_activity">Stop</string>
+
+</resources>
