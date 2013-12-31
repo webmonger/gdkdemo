@@ -1,9 +1,9 @@
 **NOTE**
 
 [GDKDemo respository will be made _private_ in the next few days.](http://blog.glassdiary.com/post/71446368700/moving-gdk-demo-apps-to-private-repository)
-Please go ahead and clone/fort it, if you'd like, before the migration.
+Please go ahead and clone/fork it, if you'd like, before the migration.
 
-_~Harry, 12/31/2013_
+_~Harry, 12/30/2013_
 
 
 
