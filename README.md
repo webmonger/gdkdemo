@@ -1,3 +1,13 @@
+**NOTE**
+
+[GDKDemo respository will be made _private_ in the next few days.](http://blog.glassdiary.com/post/71446368700/moving-gdk-demo-apps-to-private-repository)
+Please go ahead and clone/fort it, if you'd like, before the migration.
+
+_~Harry, 12/31/2013_
+
+
+
+
 Google Glass GDK Playground
 =======
 
