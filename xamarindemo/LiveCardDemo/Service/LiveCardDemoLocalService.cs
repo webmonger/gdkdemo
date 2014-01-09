@@ -48,7 +48,6 @@ namespace LiveCardDemo
 		}
 		private IBinder mBinder = new LocalBinder();
 
-
 		public override void OnCreate()
 		{
 			base.OnCreate();
@@ -89,7 +88,7 @@ namespace LiveCardDemo
 			// TBD:
 			// Publish live card...
 			// ....
-			publishCard(this);
+			PublishCard(this);
 			// ....
 
 			currentState = STATE_NORMAL;
@@ -114,7 +113,7 @@ namespace LiveCardDemo
 			// TBD:
 			// Unpublish livecard here
 			// .....
-			unpublishCard(this);
+			UnpublishCard(this);
 			// ...
 
 			return true;
@@ -123,7 +122,7 @@ namespace LiveCardDemo
 
 		// For live cards...
 
-		private void publishCard(Context context)
+		private void PublishCard(Context context)
 		{
 			Log.Debug(_tag, "publishCard() called.");
 			if (liveCard == null) {
@@ -141,7 +140,7 @@ namespace LiveCardDemo
 			}
 		}
 
-		private void unpublishCard(Context context)
+		private void UnpublishCard(Context context)
 		{
 			Log.Debug(_tag, "unpublishCard() called.");
 			if (liveCard != null) {

@@ -1,18 +1,23 @@
 using System;
+using System.Linq;
 using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-using Android.Util;
+using Android.Glass.Timeline;
+using System.Collections.Generic;
 using Android.Glass.App;
 using Android.Glass.Widget;
 using Android.Glass.Touchpad;
+using Android.OS;
+using Android.Runtime;
+using Android.Util;
+using Android.Views;
+using Android.Widget;
 
 namespace LiveCardDemo
 {
-	[Activity (Label = "LiveCardDemo", MainLauncher = true)]
+	[Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/FullscreenTheme", Enabled = true)]
+	[IntentFilter(new[] { "com.google.android.glass.action.VOICE_TRIGGER" })]
+	[MetaData("com.google.android.glass.VoiceTrigger", Resource = "@xml/voiceinput_livecarddemo")]
 	public class LiveCardDemoActivity : Activity//, Android.Views.GestureDetector.IOnGestureListener, Android.Glass.Touchpad.GestureDetector.IFingerListener
 	{
 		// Service to handle liveCard publishing, etc...
@@ -60,7 +65,7 @@ namespace LiveCardDemo
 			Log.Debug(_tag, "onCreateOptionsMenu() called.");
 
 			MenuInflater inflater = this.MenuInflater;
-			inflater.Inflate(Resource.Layout.Livecard_LiveCardDemo, menu);
+			inflater.Inflate(Resource.Menu.menu_livecarddemo_livecard, menu);
 			return true;
 		}
 

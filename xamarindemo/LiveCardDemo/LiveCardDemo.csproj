@@ -91,7 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="googleglass">
-      <InstallationInProgress>True</InstallationInProgress>
       <Version>1.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
