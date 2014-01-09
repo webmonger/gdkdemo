@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LiveCardDemoActivity.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Service\LiveCardDemoLocalService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -86,6 +87,7 @@
     <Folder Include="Resources\menu\" />
     <Folder Include="Resources\values-v11\" />
     <Folder Include="Resources\xml\" />
+    <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="googleglass">

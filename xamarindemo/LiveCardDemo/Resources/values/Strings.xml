@@ -13,7 +13,7 @@
 
     <!--  For voice input  -->
     <string name="livecarddemo_voice_trigger">start live card demo</string>
-    <string name="livecarddemo_voice_prompt">livecard demo is on</string>
+    <string name="livecarddemo_voice_prompt">livecard demo is On</string>
 
     <!--  For menu  -->
     <string name="menu_item_stop_livecarddemo">Stop</string>
