@@ -8,6 +8,7 @@ using Android.Widget;
 
 namespace LiveCardDemo
 {
+	[Service(Label="Name", Enabled = true)]
 	public class LiveCardDemoLocalService : Service
 	{
 		public LiveCardDemoLocalService () : base()

@@ -15,7 +15,7 @@ using Android.Widget;
 
 namespace LiveCardDemo
 {
-	[Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/FullscreenTheme", Enabled = true)]
+	[Activity(Label = "@string/app_name", MainLauncher = true, Enabled = true)]
 	[IntentFilter(new[] { "com.google.android.glass.action.VOICE_TRIGGER" })]
 	[MetaData("com.google.android.glass.VoiceTrigger", Resource = "@xml/voiceinput_livecarddemo")]
 	public class LiveCardDemoActivity : Activity//, Android.Views.GestureDetector.IOnGestureListener, Android.Glass.Touchpad.GestureDetector.IFingerListener
@@ -89,7 +89,7 @@ namespace LiveCardDemo
 
 			// Nothing else to do, closing the activity.
 			Finish();
-		}
+			}
 
 //		private ServiceConnection serviceConnection = new ServiceConnection() {
 //			public void OnServiceConnected(ComponentName className, IBinder service) {
