@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCardDemo", "LiveCardDemo\LiveCardDemo.csproj", "{6B1DACAB-B069-4780-8FED-578F67B3EC87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCardDemo2", "LiveCardDemo2\LiveCardDemo2.csproj", "{6B1DACAB-B069-4780-8FED-578F67B3EC87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,11 +12,15 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = LiveCardDemo\LiveCardDemo.csproj
+		StartupItem = LiveCardDemo2\LiveCardDemo2.csproj
 	EndGlobalSection
 EndGlobal
