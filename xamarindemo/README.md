@@ -5,6 +5,8 @@ Work in progress converting the excelent Java Google Glass Demos built by [Harry
 
 Harry's code is well documented but he also has a [series of blog posts](http://blog.glassdiary.com/tagged/googleglass) you might find helpful.
 
+~Jon, 9/1/14
+
 <!--## Live Card Demo
 
 This Glassware demonstrates a simple implementation of the 
