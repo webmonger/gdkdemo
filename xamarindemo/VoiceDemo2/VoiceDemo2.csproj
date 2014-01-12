@@ -5,14 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8D31BEF7-91EC-4CE6-B15E-653CF3847FCA}</ProjectGuid>
+    <ProjectGuid>{54E23439-7A66-4261-A51E-C07EC09B0C29}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>LiveCardDemo2</RootNamespace>
+    <RootNamespace>VoiceDemo2</RootNamespace>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
-    <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AssemblyName>LiveCardDemo</AssemblyName>
@@ -37,8 +38,8 @@
     <DefineConstants>__MOBILE__;__ANDROID__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,9 +53,9 @@
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LiveCardDemoActivity.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="Service\LiveCardDemoLocalService.cs" />
+    <Compile Include="VoiceDemoActivity.cs" />
+    <Compile Include="VoiceDemoSecondActivity.cs" />
+    <Compile Include="VoiceDemoConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -63,34 +64,29 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\drawable\menu_item_icon_stop.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\values-v11\styles.xml" />
     <AndroidResource Include="Resources\values\attrs.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
-    <AndroidResource Include="Resources\drawable\menu_item_icon_stop.png" />
-    <AndroidResource Include="Resources\xml\voiceinput_livecarddemo2.xml" />
-    <AndroidResource Include="Resources\layout\Activity_LiveCardDemo2.axml" />
-    <AndroidResource Include="Resources\layout\LiveCard_LiveCardDemo2.axml" />
+    <AndroidResource Include="Resources\values-v11\styles.xml" />
+    <AndroidResource Include="Resources\xml\voiceinput_voicedemo2.xml" />
+    <AndroidResource Include="Resources\xml\voiceinput_voicedemo2_second.xml" />
+    <AndroidResource Include="Resources\layout\Activity_VoiceDemo2.axml" />
+    <AndroidResource Include="Resources\layout\Activity_VoiceDemo2_Second.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Resources\drawable-hdpi\" />
-    <Folder Include="Resources\drawable-mdpi\" />
-    <Folder Include="Resources\drawable-xhdpi\" />
-    <Folder Include="Resources\drawable-xxhdpi\" />
-    <Folder Include="Resources\values-v11\" />
-    <Folder Include="Resources\xml\" />
-    <Folder Include="Service\" />
-    <Folder Include="Resources\layout\" />
-  </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="googleglass">
       <Version>1.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\layout\" />
   </ItemGroup>
 </Project>

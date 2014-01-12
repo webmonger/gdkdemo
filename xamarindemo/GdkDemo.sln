@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCardDemo", "LiveCardDemo\LiveCardDemo.csproj", "{6B1DACAB-B069-4780-8FED-578F67B3EC87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCardDemo2", "LiveCardDemo2\LiveCardDemo2.csproj", "{6B1DACAB-B069-4780-8FED-578F67B3EC87}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCardDemo2", "LiveCardDemo2\LiveCardDemo2.csproj", "{8D31BEF7-91EC-4CE6-B15E-653CF3847FCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceDemo2", "VoiceDemo2\VoiceDemo2.csproj", "{54E23439-7A66-4261-A51E-C07EC09B0C29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,16 +13,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E23439-7A66-4261-A51E-C07EC09B0C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E23439-7A66-4261-A51E-C07EC09B0C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E23439-7A66-4261-A51E-C07EC09B0C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E23439-7A66-4261-A51E-C07EC09B0C29}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B1DACAB-B069-4780-8FED-578F67B3EC87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D31BEF7-91EC-4CE6-B15E-653CF3847FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D31BEF7-91EC-4CE6-B15E-653CF3847FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D31BEF7-91EC-4CE6-B15E-653CF3847FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D31BEF7-91EC-4CE6-B15E-653CF3847FCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = LiveCardDemo2\LiveCardDemo2.csproj
+		StartupItem = VoiceDemo2\VoiceDemo2.csproj
 	EndGlobalSection
 EndGlobal
