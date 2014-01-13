@@ -55,21 +55,21 @@ namespace VoiceDemo2
 		}
 
 		// Returns the "first" word from the phrase following the prompt.
-		private String GetVoiceAction(Intent intent)
+		private string GetVoiceAction(Intent intent)
 		{
 			if(intent == null) {
 				return null;
 			}
 			string action = null;
-			Bundle extras = this.Intent;
-			List<string> voiceActions = null;
+			Bundle extras = this.Intent.Extras;
+			IList<string> voiceActions = null;
 			if(extras != null) {
 				voiceActions = extras.GetStringArrayList(RecognizerIntent.ExtraResults);
 				if(voiceActions != null && !voiceActions.Any()) {
 					foreach(string a in voiceActions) {
 						Log.Debug(_tag, "action = " + a);
 					}
-					action = voiceActions;
+                    action = string.Join(",", voiceActions.ToArray());
 				}
 			}
 			return action;
@@ -77,18 +77,18 @@ namespace VoiceDemo2
 
 		// Opens the WordDictation activity,
 		// or, quits the program.
-		private void ProcessVoiceAction(String voiceAction)
+		private void ProcessVoiceAction(string voiceAction)
 		{
 			if(voiceAction != null) {
 				if(voiceAction.Equals(VoiceDemoConstants.ACTION_START_MAIN_ACTIVITY)
 					|| voiceAction.Equals(VoiceDemoConstants.ACTION_START_FIRST_ACTIVITY)) {
-					Log.Info("Starting VoiceDemo2 main activity.");
-					OpenVoiceDemoMainActivity();
-					this.finish();   // ???
+					Log.Info(_tag, "Starting VoiceDemo2 main activity.");
+                    OpenVoiceDemoMainActivity();
+					this.Finish();   // ???
 				} else if(voiceAction.Equals(VoiceDemoConstants.ACTION_START_SECOND_ACTIVITY)) {
-					Log.Info("VoiceDemo2 second activity is being started.");
+                    Log.Info(_tag, "VoiceDemo2 second activity is being started.");
 				} else if(voiceAction.Equals(VoiceDemoConstants.ACTION_STOP_VOICEDEMO)) {
-					Log.Info("VoiceDemo2 second activity has been terminated upon start.");
+                    Log.Info(_tag, "VoiceDemo2 second activity has been terminated upon start.");
 					this.Finish();
 				} else {
 					Log.Warn(_tag, "Unknown voice action: " + voiceAction);
@@ -98,7 +98,7 @@ namespace VoiceDemo2
 			}
 		}
 
-		private void OpenVoiceDemoSecondActivity()
+        private void OpenVoiceDemoMainActivity()
 		{
 			Intent intent = new Intent(this, typeof(VoiceDemoActivity));
 			// ???
@@ -159,10 +159,10 @@ namespace VoiceDemo2
 
 		private class MyGestureDetector : Android.Glass.Touchpad.GestureDetector.IBaseListener
 		{
-			VoiceDemoActivity _context;
+            VoiceDemoSecondActivity _context;
 			string _tag = "MyGestureDetector";
 
-			public MyGestureDetector (VoiceDemoActivity context)
+            public MyGestureDetector(VoiceDemoSecondActivity context)
 			{
 				_context = context;
 			}
@@ -172,7 +172,7 @@ namespace VoiceDemo2
 			{
 				Log.Info(_tag, "gesture = " + gesture);
 				if (gesture == Gesture.Tap) {
-					_context.OpenVoiceDemoSecondActivity();
+					_context.OpenVoiceDemoMainActivity();
 					return true;
 				} 
 				return false;

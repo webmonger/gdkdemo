@@ -42,7 +42,7 @@ namespace VoiceDemo2
 			Log.Debug(_tag,"onResume() called.");
 		}
 
-		private void OpenVoiceDemoSecondActivity()
+		public void OpenVoiceDemoSecondActivity()
 		{
 			Intent intent = new Intent(this, typeof(VoiceDemoSecondActivity));
 			// ???
