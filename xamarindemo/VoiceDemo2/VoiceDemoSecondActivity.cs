@@ -1,19 +1,18 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Android.App;
 using Android.Content;
-using Android.Glass.Timeline;
-using System.Collections.Generic;
 using Android.Glass.App;
-using Android.Glass.Widget;
+using Android.Glass.Timeline;
 using Android.Glass.Touchpad;
+using Android.Glass.Widget;
 using Android.OS;
 using Android.Runtime;
+using Android.Speech;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Android.App;
-using Android.Speech;
 
 namespace VoiceDemo2
 {

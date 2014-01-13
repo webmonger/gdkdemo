@@ -12,7 +12,6 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Android.App;
 
 namespace VoiceDemo2
 {
