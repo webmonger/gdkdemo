@@ -65,7 +65,7 @@ namespace VoiceDemo2
 			List<string> voiceActions = null;
 			if(extras != null) {
 				voiceActions = extras.GetStringArrayList(RecognizerIntent.ExtraResults);
-				if(voiceActions != null && !voiceActions.isEmpty()) {
+				if(voiceActions != null && !voiceActions.Any()) {
 					foreach(string a in voiceActions) {
 						Log.Debug(_tag, "action = " + a);
 					}
@@ -80,21 +80,21 @@ namespace VoiceDemo2
 		private void ProcessVoiceAction(String voiceAction)
 		{
 			if(voiceAction != null) {
-				if(voiceAction.equals(VoiceDemoConstants.ACTION_START_MAIN_ACTIVITY)
-					|| voiceAction.equals(VoiceDemoConstants.ACTION_START_FIRST_ACTIVITY)) {
+				if(voiceAction.Equals(VoiceDemoConstants.ACTION_START_MAIN_ACTIVITY)
+					|| voiceAction.Equals(VoiceDemoConstants.ACTION_START_FIRST_ACTIVITY)) {
 					Log.Info("Starting VoiceDemo2 main activity.");
 					OpenVoiceDemoMainActivity();
 					this.finish();   // ???
-				} else if(voiceAction.equals(VoiceDemoConstants.ACTION_START_SECOND_ACTIVITY)) {
+				} else if(voiceAction.Equals(VoiceDemoConstants.ACTION_START_SECOND_ACTIVITY)) {
 					Log.Info("VoiceDemo2 second activity is being started.");
-				} else if(voiceAction.equals(VoiceDemoConstants.ACTION_STOP_VOICEDEMO)) {
+				} else if(voiceAction.Equals(VoiceDemoConstants.ACTION_STOP_VOICEDEMO)) {
 					Log.Info("VoiceDemo2 second activity has been terminated upon start.");
-					this.finish();
+					this.Finish();
 				} else {
-					Log.w("Unknown voice action: " + voiceAction);
+					Log.Warn(_tag, "Unknown voice action: " + voiceAction);
 				}
 			} else {
-				Log.w("No voice action provided.");
+				Log.Warn(_tag, "No voice action provided.");
 			}
 		}
 
@@ -111,17 +111,17 @@ namespace VoiceDemo2
 		///////////////////////////////////////////////////////
 		/// Gesture handling
 		//
-		public override bool OnGenericMotionEvent(MotionEvent event)
+		public override bool OnGenericMotionEvent(MotionEvent e)
 		{
 			if (mGestureDetector != null) {
-				return mGestureDetector.OnMotionEvent(event);
+				return mGestureDetector.OnMotionEvent(e);
 			}
-			return base.OnGenericMotionEvent(event);
+			return base.OnGenericMotionEvent(e);
 		}
 
-		private GestureDetector CreateGestureDetector(Context context)
+		private Android.Glass.Touchpad.GestureDetector CreateGestureDetector(Context context)
 		{
-			GestureDetector gestureDetector = new GestureDetector(context);
+			Android.Glass.Touchpad.GestureDetector gestureDetector = new Android.Glass.Touchpad.GestureDetector(context);
 			//Create a base listener for generic gestures
 			gestureDetector.SetBaseListener(new MyGestureDetector(this));
 			return gestureDetector;
