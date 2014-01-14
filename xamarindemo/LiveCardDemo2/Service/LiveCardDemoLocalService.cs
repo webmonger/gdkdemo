@@ -18,6 +18,8 @@ namespace LiveCardDemo2
 
 		private string _tag = "LiveCardDemo.Service.LiveCardDemoLocalService";
 
+		int countOfCalls = 0;
+
 		// "Life cycle" constants
 
 		// [1] Starts from this..
@@ -105,9 +107,9 @@ namespace LiveCardDemo2
 			// Publish live card...
 			// ....
 			PublishCard(this);
-			if(heartBeat == null) {
-				heartBeat = new Timer(new TimerCallback (tmrThreadingTimer_TimerCallback), null, System.Threading.Timeout.Infinite, 10000);
-			}
+//			if(heartBeat == null) {
+//				heartBeat = new Timer(new TimerCallback (tmrThreadingTimer_TimerCallback), null, System.Threading.Timeout.Infinite, 10000);
+//			}
 			StartHeartBeat();
 			// ....
 
@@ -198,6 +200,8 @@ namespace LiveCardDemo2
 				RemoteViews remoteViews = new RemoteViews(context.PackageName, Resource.Layout.LiveCard_LiveCardDemo2);
 				string content = "";
 
+				remoteViews.SetTextViewText (Resource.Id.livecard_count, countOfCalls.ToString());
+
 				// testing
 				string now = DateTime.UtcNow.ToString();
 				content = "Updated: " + now;
@@ -234,12 +238,13 @@ namespace LiveCardDemo2
 
 		private void StartHeartBeat()
 		{
-			Handler handler = new Handler();
-			heartBeat = new Timer (new TimerCallback (tmrThreadingTimer_TimerCallback), null, System.Threading.Timeout.Infinite, 10000);
+//			Handler handler = new Handler();
+			heartBeat = new Timer (new TimerCallback (tmrThreadingTimer_TimerCallback), null, 0, 10000);
 			                           //heartBeat.schedule(liveCardUpdateTask, 0L, 10000L); // Every 10 seconds...
 		}
 
 		public void tmrThreadingTimer_TimerCallback(object state) {
+			countOfCalls++;
 //			handler.post(new Runnable() {
 //				public void run() {
 			try {

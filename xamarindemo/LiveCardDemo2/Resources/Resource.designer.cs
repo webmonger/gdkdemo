@@ -88,6 +88,9 @@ namespace LiveCardDemo2
 			// aapt resource value: 0x7f080001
 			public const int livecard_content = 2131230721;
 			
+			// aapt resource value: 0x7f080002
+			public const int livecard_count = 2131230722;
+			
 			// aapt resource value: 0x7f080000
 			public const int livecarddemo2_main_content = 2131230720;
 			
