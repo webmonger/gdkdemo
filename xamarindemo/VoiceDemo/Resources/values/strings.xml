@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Voice Demo</string>
+
+    <string name="voicedemo_screen_content">Voice Demo\nIs Now Active</string>
+    <string name="voicedemo_livecard_content">Voice Demo\nIs Currently Active</string>
+
+    <string name="title_activity_voicedemo">Voice Demo</string>
+    <string name="title_activity_voice_dictation">Voice Dictation</string>
+    <string name="voicedictation_content">Tap to start dictation</string>
+
+    <!--  VoiceDemoLocalService  -->
+    <string name="voicedemo_localservice_started">Voice Demo Service started.</string>
+
+    <!--  For voice input  -->
+    <string name="voicedemo_voice_trigger">start voice demo</string>
+    <string name="voicedemo_voice_prompt">next action</string>
+
+</resources>
