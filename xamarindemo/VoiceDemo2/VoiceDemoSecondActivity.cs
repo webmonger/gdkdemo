@@ -24,7 +24,7 @@ namespace VoiceDemo2
 		// For tap events
 		private Android.Glass.Touchpad.GestureDetector mGestureDetector;
 		// Voice action.
-		private String voiceAction = null;
+		private string voiceAction = null;
 		string _tag = "VoiceDemoActivity";
 
 		protected override void OnCreate (Bundle bundle)
@@ -49,7 +49,7 @@ namespace VoiceDemo2
 
 			// This makes it impossible to exit the app.
 //        voiceAction = getVoiceAction(getIntent());
-//        if(Log.I) Log.i("voiceAction = " + voiceAction);
+//        if(Log.I) Log.Info(_tag, "voiceAction = " + voiceAction);
 //        processVoiceAction(voiceAction);
 		}
 

@@ -127,7 +127,7 @@ namespace LiveCardDemo
 		{
 			Log.Debug(_tag, "publishCard() called.");
 			if (liveCard == null) {
-				String cardId = "livecarddemo_card";
+				string cardId = "livecarddemo_card";
 				TimelineManager tm = TimelineManager.From(context);
 				liveCard = tm.CreateLiveCard(cardId);
 

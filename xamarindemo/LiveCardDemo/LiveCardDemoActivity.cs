@@ -93,11 +93,11 @@ namespace LiveCardDemo
 
 //		private ServiceConnection serviceConnection = new ServiceConnection() {
 //			public void OnServiceConnected(ComponentName className, IBinder service) {
-//				Log.d("onServiceConnected() called.");
+//				Log.Debug(_tag, "onServiceConnected() called.");
 //				liveCardDemoLocalService = ((LiveCardDemoLocalService.LocalBinder)service).getService();
 //			}
 //			public void OnServiceDisconnected(ComponentName className) {
-//				Log.d("onServiceDisconnected() called.");
+//				Log.Debug(_tag, "onServiceDisconnected() called.");
 //				liveCardDemoLocalService = null;
 //			}
 //		};
