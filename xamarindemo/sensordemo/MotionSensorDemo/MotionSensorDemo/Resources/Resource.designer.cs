@@ -57,7 +57,7 @@ namespace MotionSensorDemo
 			}
 		}
 		
-		public partial class string
+		public partial class String
 		{
 			
 			// aapt resource value: 0x7f040001
@@ -66,12 +66,12 @@ namespace MotionSensorDemo
 			// aapt resource value: 0x7f040000
 			public const int hello = 2130968576;
 			
-			static string()
+			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			private string()
+			private String()
 			{
 			}
 		}

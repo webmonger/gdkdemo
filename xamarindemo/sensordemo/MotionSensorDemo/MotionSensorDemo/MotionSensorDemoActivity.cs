@@ -12,7 +12,7 @@ namespace MotionSensorDemo
 	[Activity (Label = "MotionSensorDemo", Icon = "@drawable/Icon", MainLauncher = true, Enabled = true)]
 	[IntentFilter (new string[]{ "com.google.android.glass.action.VOICE_TRIGGER" })]
 	[MetaData ("com.google.android.glass.VoiceTrigger", Resource = "@xml/voicetriggerstart")]
-	public class MainActivity : Activity
+	public class MotionSensorDemoActivity : Activity
 	{
 		// The project requires the Google Glass Component from
 		// https://components.xamarin.com/view/googleglass

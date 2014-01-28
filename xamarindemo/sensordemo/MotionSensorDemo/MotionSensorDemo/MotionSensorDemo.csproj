@@ -17,6 +17,7 @@
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
     <AssemblyName>MotionSensorDemo</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,9 +50,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MotionSensorDemoActivity.cs" />
+    <Compile Include="service\MotionSensorDemoLocalService.cs" />
+    <Compile Include="common\SensorValueStruct.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidEnvironment Include="AndroidEnvironments.txt" />
@@ -62,17 +65,20 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\layout\" />
+    <Folder Include="Resources\Layout\" />
+    <Folder Include="service\" />
+    <Folder Include="common\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\xml\VoiceTriggerStart.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\Layout\Activity_MotionSensorDemo.axml" />
+    <AndroidResource Include="Resources\Layout\LiveCard_MotionSensorDemo.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <XamarinComponentReference Include="googleglass">
-      <InstallationInProgress>True</InstallationInProgress>
       <Version>1.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
