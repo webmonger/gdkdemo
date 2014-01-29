@@ -14,7 +14,7 @@ namespace EnvironmentalSensorDemo
 		{
 			// This class cannot be instantiated
 
-			public static Android.Net.Uri CONTENT_URI = Uri.Parse("content://" + DataHelper.GetInstance().GetContentProviderAuthority("SensorValue") + "/sensorvalues");
+			public static Android.Net.Uri CONTENT_URI = Android.Net.Uri.Parse("content://" + DataHelper.GetInstance().GetContentProviderAuthority("SensorValue") + "/sensorvalues");
 			public static string CONTENT_TYPE = "vnd.android.cursor.dir/vnd.gdkdemosensordemo.sensorvalue";
 			public static string CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.gdkdemosensordemo.sensorvalue";
 			public static string DEFAULT_SORT_ORDER = "createdTime desc";

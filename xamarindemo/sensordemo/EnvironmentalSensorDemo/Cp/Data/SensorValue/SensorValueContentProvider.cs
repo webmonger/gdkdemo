@@ -16,10 +16,10 @@ namespace EnvironmentalSensorDemo
 
 		public static string AUTHORITY = "com.gdkdemo.sensor.environmental.cp.data.sensorvalue";
 
-		private static int SENSORVALUES = 21;
-		private static int SENSORVALUE_ID = 22;
+	    private const int SENSORVALUES = 21;
+	    private const int SENSORVALUE_ID = 22;
 
-		private static UriMatcher sUriMatcher;
+	    private static UriMatcher sUriMatcher;
 
 		private SensorValueDB mDB;
 		private bool mSyncToWeb;
@@ -31,7 +31,7 @@ namespace EnvironmentalSensorDemo
 			return true;
 		}
 
-		public string GetType(Uri uri)
+		public override string GetType(Android.Net.Uri uri)
 		{
 			switch (sUriMatcher.Match(uri)) {
 			case SENSORVALUE_ID:
@@ -48,44 +48,47 @@ namespace EnvironmentalSensorDemo
 		{
 			string id = null;
 			ICursor c = null;
-			switch (sUriMatcher.Match(uri)) {
-			case SENSORVALUE_ID:
-				id = uri.PathSegments [1];
-				// fall through
-			case SENSORVALUES:
-				c = mDB.GetSensorValues(id, projection, selection, selectionArgs, sortOrder);
-				break;
-			default:
-				throw new IllegalArgumentException("Unknown URI " + uri);
-			}
+		    switch (sUriMatcher.Match(uri))
+		    {
+		        case SENSORVALUE_ID:
+		            id = uri.PathSegments[1];
+		            // fall through
+		        case SENSORVALUES:
+		            c = mDB.GetSensorValues(id, projection, selection, selectionArgs, sortOrder);
+		            break;
+		        default:
+		            throw new IllegalArgumentException("Unknown URI " + uri);
+		    }
 
-			// Tell the cursor what uri to watch, so it knows when its source data changes
+		    // Tell the cursor what uri to watch, so it knows when its source data changes
 			if(c != null) {
 			c.SetNotificationUri(Context.ContentResolver, uri);
 			}
 			return c;
 		}
 
-		public override Android.Net.Uri Insert(Android.Net.Uri uri, ContentValues initialValues)
-		{    	
-			long rowId = null;
-			Android.Net.Uri projectUri = null;
-			switch (sUriMatcher.Match(uri)) {
-			case SENSORVALUES:
-				rowId = mDB.InsertSensorValue(initialValues).id();
-				projectUri = ContentUris.WithAppendedId(SensorValueData.SensorValues.CONTENT_URI, rowId);
-				break;
-			default:
-				throw new IllegalArgumentException("Unknown URI " + uri);
-			}
+	    public override Android.Net.Uri Insert(Android.Net.Uri uri, ContentValues initialValues)
+	    {
+	        long rowId;
+	        Android.Net.Uri projectUri = null;
+	        switch (sUriMatcher.Match(uri))
+	        {
+	            case SENSORVALUES:
+	                rowId = mDB.InsertSensorValue(initialValues).id();
+	                projectUri = ContentUris.WithAppendedId(SensorValueData.SensorValues.CONTENT_URI, rowId);
+	                break;
+	            default:
+	                throw new IllegalArgumentException("Unknown URI " + uri);
+	        }
 
-			if(rowId >= 0) {
-			Context.ContentResolver.NotifyChange(projectUri, null);
-			}
-			return projectUri;
-		}
+	        if (rowId >= 0)
+	        {
+	            Context.ContentResolver.NotifyChange(projectUri, null);
+	        }
+	        return projectUri;
+	    }
 
-		public override int Update(Android.Net.Uri uri, ContentValues values, string where, string[] whereArgs)
+	    public override int Update(Android.Net.Uri uri, ContentValues values, string where, string[] whereArgs)
 		{
 			string id;
 			switch (sUriMatcher.Match(uri)) {

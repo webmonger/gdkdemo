@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Android.Content;
 using Android.Database.Sqlite;
 using Android.Util;
@@ -14,7 +15,7 @@ namespace EnvironmentalSensorDemo
 		private static int DATABASE_VERSION = 1;
 		public static string SENSORVALUE_TABLE_NAME = "sensorvalues";
 
-		public static Hashtable PMAP_SENSORVALUES = new Hashtable();
+        public static IDictionary<string, string> PMAP_SENSORVALUES = new Dictionary<string, string>();
 
 		public SensorValueDBHelper(Context context) : base(context, DATABASE_NAME, null, DATABASE_VERSION) {
 			PMAP_SENSORVALUES.Add(SensorValueData.SensorValues.Id, SensorValueData.SensorValues.Id);

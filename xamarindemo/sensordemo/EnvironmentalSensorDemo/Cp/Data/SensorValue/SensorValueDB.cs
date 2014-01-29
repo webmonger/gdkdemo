@@ -1,5 +1,7 @@
 using System;
 using Android.Database.Sqlite;
+using Android.Text;
+using EnvironmentalSensorDemo.Cp.Core;
 using Java.Util;
 using System.Text;
 using Android.Database;
@@ -14,7 +16,7 @@ namespace EnvironmentalSensorDemo
 
 		public SensorValueDB(Context context)
 		{
-			this(new SensorValueDBHelper(context));
+		    SensorValueDB(new SensorValueDBHelper(context));
 		}
 
 		public SensorValueDB(SensorValueDBHelper dbHelper)
@@ -52,12 +54,17 @@ namespace EnvironmentalSensorDemo
 			qb.Tables = SensorValueDBHelper.SENSORVALUE_TABLE_NAME;
 			qb.SetProjectionMap(SensorValueDBHelper.PMAP_SENSORVALUES);
 
-			if(!TextUtils.isEmpty(id)) {
-				try {
-					if(long.Parse(id))
+			if(!TextUtils.IsEmpty(id)) {
+				try
+				{
+				    long lId;
+					if(long.TryParse(id, out lId))
 						qb.AppendWhere(SensorValueData.SensorValues.Id + "=" + id);
-				} catch(NumberFormatException ex) {
-					if(Guid.Parse(id)) {
+				} catch(NumberFormatException ex)
+				{
+				    Guid guid;
+                    if (Guid.TryParse(id, out guid))
+                    {
 						qb.AppendWhere(SensorValueData.SensorValues.GUID + "='" + id + "'");
 					} else {
 						// TBD: Just ignore?
@@ -68,7 +75,7 @@ namespace EnvironmentalSensorDemo
 			}
 
 			string orderBy = null;
-			if (TextUtils.isEmpty(sortOrder)) {
+			if (TextUtils.IsEmpty(sortOrder)) {
 				orderBy = SensorValueData.SensorValues.DEFAULT_SORT_ORDER;
 			} else {
 				orderBy = sortOrder;
@@ -112,25 +119,25 @@ namespace EnvironmentalSensorDemo
 			//if (values.ContainsKey(SensorValues.VAL3) == false) {
 			//    values.Put(SensorValues.VAL3, null);
 			//}
-			if (values.ContainsKey(EnvironmentalSensorDemo.SensorValueData.SensorValues.TIMESTAMP) == false) {
-				values.Put(EnvironmentalSensorDemo.SensorValueData.SensorValues.TIMESTAMP, 0L);
+			if (values.ContainsKey(SensorValueData.SensorValues.TIMESTAMP) == false) {
+				values.Put(SensorValueData.SensorValues.TIMESTAMP, 0L);
 			}
-			if (values.ContainsKey(EnvironmentalSensorDemo.SensorValueData.SensorValues.CREATEDTIME) == false) {
+			if (values.ContainsKey(SensorValueData.SensorValues.CREATEDTIME) == false) {
 				// Long now = Long.valueOf(System.currentTimeMillis());
 				// values.Put(SensorValues.CREATEDTIME, now);
-				values.Put(EnvironmentalSensorDemo.SensorValueData.SensorValues.CREATEDTIME, 0L);
+				values.Put(SensorValueData.SensorValues.CREATEDTIME, 0L);
 			}
-			if (values.ContainsKey(EnvironmentalSensorDemo.SensorValueData.SensorValues.MODIFIEDTIME) == false) {
+			if (values.ContainsKey(SensorValueData.SensorValues.MODIFIEDTIME) == false) {
 				// Long now = Long.valueOf(System.currentTimeMillis());
 				// values.Put(SensorValues.MODIFIEDTIME, now);
-				values.Put(EnvironmentalSensorDemo.SensorValueData.SensorValues.MODIFIEDTIME, 0L);
+				values.Put(SensorValueData.SensorValues.MODIFIEDTIME, 0L);
 			}
 
-			if (values.ContainsKey(EnvironmentalSensorDemo.SensorValueData.SensorValues._REST_STATE) == false) {
-				values.Put(EnvironmentalSensorDemo.SensorValueData.SensorValues._REST_STATE, 0);
+			if (values.ContainsKey(SensorValueData.SensorValues._REST_STATE) == false) {
+				values.Put(SensorValueData.SensorValues._REST_STATE, 0);
 			}
-			if (values.ContainsKey(EnvironmentalSensorDemo.SensorValueData.SensorValues._REST_RESULT) == false) {
-				values.Put(EnvironmentalSensorDemo.SensorValueData.SensorValues._REST_RESULT, "");
+			if (values.ContainsKey(SensorValueData.SensorValues._REST_RESULT) == false) {
+				values.Put(SensorValueData.SensorValues._REST_RESULT, "");
 			}
 			// if (values.ContainsKey(SensorValues._REST_CURRENT_ACTION) == false) {
 			//     values.Put(SensorValues._REST_CURRENT_ACTION, "");
@@ -158,13 +165,17 @@ namespace EnvironmentalSensorDemo
 			// Long now = Long.valueOf(System.currentTimeMillis());
 			// values.Put(SensorValues.MODIFIEDTIME, now);
 
-			if(!TextUtils.isEmpty(id)) {
-				try {
-					if(long.Parse(id))
-						where = SensorValueData.SensorValues.Id + "=" + id + (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : "");
-				} catch(NumberFormatException ex) {
-					if(Guid.Parse(id)) {
-							where = SensorValueData.SensorValues.GUID + "='" + id + "'" + (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : "");
+			if(!TextUtils.IsEmpty(id)) {
+				try
+				{
+				    long lID;
+					if(long.TryParse(id, out lID))
+						where = SensorValueData.SensorValues.Id + "=" + id + (!TextUtils.IsEmpty(where) ? " AND (" + where + ')' : "");
+				} catch(NumberFormatException ex)
+				{
+				    Guid guid;
+					if(Guid.TryParse(id, out guid)) {
+							where = SensorValueData.SensorValues.GUID + "='" + id + "'" + (!TextUtils.IsEmpty(where) ? " AND (" + where + ')' : "");
 					} else {
 						throw new SQLException("SensorValue id is invalid: id = " + id); 
 					}
@@ -184,13 +195,17 @@ namespace EnvironmentalSensorDemo
 		}
 		public int DeleteSensorValues(string id, string where, string[] whereArgs, bool forReal)
 		{
-			if(!TextUtils.isEmpty(id)) {
-				try {
-					if(long.Parse(id))
-						where = SensorValueData.SensorValues.Id + "=" + id + (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : "");
-				} catch(NumberFormatException ex) {
-					if(Guid.TryParse(id)) {
-							where = SensorValueData.SensorValues.GUID + "=" + id + (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : "");
+			if(!TextUtils.IsEmpty(id)) {
+				try
+				{
+				    long lID;
+                    if (long.TryParse(id, out lID))
+						where = SensorValueData.SensorValues.Id + "=" + id + (!TextUtils.IsEmpty(where) ? " AND (" + where + ')' : "");
+				} catch(NumberFormatException ex)
+				{
+				    Guid guid;
+					if(Guid.TryParse(id, out guid)) {
+							where = SensorValueData.SensorValues.GUID + "=" + id + (!TextUtils.IsEmpty(where) ? " AND (" + where + ')' : "");
 					} else {
 						throw new SQLException("SensorValue id is invalid: id = " + id); 
 					}
@@ -218,7 +233,7 @@ namespace EnvironmentalSensorDemo
 		// temporary
 		private static string generatePlaceHolderName() 
 		{
-			Calendar c = Calendar.GetInstance();
+			Calendar c = Calendar.Instance;
 			int year = c.Get(Calendar.Year);
 			int month = c.Get(Calendar.Month);
 			int day = c.Get(Calendar.DayOfMonth);

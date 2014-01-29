@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.Glass.App;
@@ -19,9 +21,10 @@ namespace EnvironmentalSensorDemo
 	{
 		public EnvironmentalSensorDemoLocalService () :base()
 		{
+		    mBinder = new LocalBinder(this);
 		}
 
-		private string _tag = "EnvironmentalSensorDemoLocalService";
+	    private string _tag = "EnvironmentalSensorDemoLocalService";
 
 		// For live card
 		private LiveCard liveCard = null;
@@ -56,7 +59,7 @@ namespace EnvironmentalSensorDemo
 				return _service;
 			}
 		}
-		private IBinder mBinder = new LocalBinder(this);
+		private IBinder mBinder;
 
 
 		public override void OnCreate()
@@ -117,9 +120,9 @@ namespace EnvironmentalSensorDemo
 			// Publish live card...
 			PublishCard(this);
 
-			if(heartBeat == null) {
-				heartBeat = new Timer();
-			}
+//			if(heartBeat == null) {
+//				heartBeat = new Timer();
+//			}
 			StartHeartBeat();
 
 			return true;
@@ -215,9 +218,9 @@ namespace EnvironmentalSensorDemo
 				long now = DateTime.UtcNow.Millisecond;
 				if(lastSensorValuesLight != null) {
 					long newTimestamp = lastSensorValuesLight.GetTimestamp();  // ~~ now * 1000000 ...
-					float[] vals = lastSensorValuesLight.GetValues();
+					IList<float> vals = lastSensorValuesLight.GetValues();
 					float newSensorValue = 0.0f;
-					if(vals != null && vals.Length > 0) {
+					if(vals != null && vals.Count() > 0) {
 						newSensorValue = vals[0];
 					}
 					content += "Current value: " + newSensorValue;
@@ -285,22 +288,24 @@ namespace EnvironmentalSensorDemo
 			Log.Debug(_tag, "processEnvironmentalSensorData() called at " + now);
 
 			Sensor sensor = e.Sensor;
-			int type = sensor.GetType();
+            SensorType type = sensor.Type;
 			long timestamp = e.Timestamp;
-			float[] values = e.Values;
-			int accuracy = e.Accuracy;
+			IList<float> values = e.Values;
+			SensorStatus accuracy = e.Accuracy;
 			SensorValueStruct data = new SensorValueStruct(type, timestamp, values, accuracy);
 
-			switch(type) {
-			case SensorType.Light:
-				lastSensorValuesLight = data;
-				// lastRefreshedTime = timestamp;
-				break;
-			default:
-				Log.Warn(_tag, "Unknown type: " + type);
-			}
+		    switch (type)
+		    {
+		        case SensorType.Light:
+		            lastSensorValuesLight = data;
+		            // lastRefreshedTime = timestamp;
+		            break;
+		        default:
+		            Log.Warn(_tag, "Unknown type: " + type);
+                    break;
+		    }
 
-			// TBD:
+		    // TBD:
 			// Update the DB, etc..
 			// ...
 
@@ -329,8 +334,8 @@ namespace EnvironmentalSensorDemo
 
 			if(lastSensorValuesLight != null) {
 				long now = DateTime.UtcNow.Millisecond;
-				float[] val = lastSensorValuesLight.GetValues();
-				if(val == null || val.Length == 0) {
+				IList<float> val = lastSensorValuesLight.GetValues();
+				if(val == null || !val.Any()) {
 					// ????
 					// Can this happen???
 					// If this happens, there is no point of saving the entry.
@@ -341,35 +346,38 @@ namespace EnvironmentalSensorDemo
 				// Save...
 				ContentValues contentValues = new ContentValues();
 
-				contentvalues.Put(SensorValueData.SensorValues.GUID, Guid.NewGuid());
-				contentvalues.Put(SensorValueData.SensorValues.TYPE, SensorType.Light);
-				contentvalues.Put(SensorValueData.SensorValues.ACCURACY, lastSensorValuesLight.GetAccuracy());
+				contentValues.Put(SensorValueData.SensorValues.GUID, Guid.NewGuid().ToString());
+                contentValues.Put(SensorValueData.SensorValues.TYPE, SensorType.Light.ToString());
+                contentValues.Put(SensorValueData.SensorValues.ACCURACY, lastSensorValuesLight.GetAccuracy().ToString());
 				// if(val != null && val.length > 0) {
 				Log.Debug(_tag, "Sensor value = " + val[0]);
 				// TBD: What is this value 0.0???
 				//      When does this happen????
 				//      Do not save the entry if val[0] == 0.0 ????
 				if(val[0] == 0.0f) {
-					Log.Warn("Invalid sensor value: 0.0. Skipping this record.");
+					Log.Warn(_tag, "Invalid sensor value: 0.0. Skipping this record.");
 					return;
 				}
-				contentvalues.Put(SensorValueData.SensorValues.VAL0, val[0]);
+                contentValues.Put(SensorValueData.SensorValues.VAL0, val[0]);
 				// Light sensor value is a scalar... --> only val[0] is used...
 				// The following is not really needed.
 				// (Also, val.length should always, I presume, be 4, and hence the if() checks are not needed.)
-				if(val.Length > 1) {
-					contentvalues.Put(SensorValueData.SensorValues.VAL1, val[1]);
-					if(val.Length > 2) {
-						contentvalues.Put(SensorValueData.SensorValues.VAL2, val[2]);
-						if(val.Length > 3) {
-							contentvalues.Put(SensorValueData.SensorValues.VAL3, val[3]);
-						}
-					}
-				}
-				// }
-				contentvalues.Put(SensorValueData.SensorValues.TIMESTAMP, lastSensorValuesLight.GetTimestamp());
-				contentvalues.Put(SensorValueData.SensorValues.CREATEDTIME, now);
-				contentvalues.Put(SensorValueData.SensorValues.MODIFIEDTIME, 0L);
+			    if (val.Count() > 1)
+			    {
+			        contentValues.Put(SensorValueData.SensorValues.VAL1, val[1]);
+			        if (val.Count() > 2)
+			        {
+			            contentValues.Put(SensorValueData.SensorValues.VAL2, val[2]);
+			            if (val.Count() > 3)
+			            {
+			                contentValues.Put(SensorValueData.SensorValues.VAL3, val[3]);
+			            }
+			        }
+			    }
+			    // }
+                contentValues.Put(SensorValueData.SensorValues.TIMESTAMP, lastSensorValuesLight.GetTimestamp());
+                contentValues.Put(SensorValueData.SensorValues.CREATEDTIME, now);
+                contentValues.Put(SensorValueData.SensorValues.MODIFIEDTIME, 0L);
 
 				Log.Debug(_tag, "Before calling getContentResolver().insert()");
 				ContentResolver.Insert(SensorValueData.SensorValues.CONTENT_URI, contentValues);

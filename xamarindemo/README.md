@@ -3,6 +3,8 @@ Glass Development Kit API Demo for Xamarin
 
 Work in progress converting the excelent Java Google Glass Demos built by [Harry Y](https://github.com/harrywye) to work in C# and Xamarin.
 
+I should say these are direct conversions for the time being (i.e. [Java style](http://www.oracle.com/technetwork/java/codeconv-138413.html) GetVariableName() SetVariableName(stringHere) style), they prove the concept of how this stuff works in Xamarin. At some point we may change these over to best practice for .net development but right now we just want to see how all this stuff works!
+
 Harry's code is well documented but he also has a [series of blog posts](http://blog.glassdiary.com/tagged/googleglass) you might find helpful.
 
 ~Jon, 9/1/14

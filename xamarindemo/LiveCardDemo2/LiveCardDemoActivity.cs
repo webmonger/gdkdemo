@@ -31,7 +31,7 @@ namespace LiveCardDemo2
 		private IServiceConnection serviceConnection = new MyServiceConnection();
 
 		public class MyServiceConnection : IServiceConnection {
-			#region IServiceConnection implementation
+
 			public void OnServiceConnected(ComponentName className, IBinder service) {
 				Log.Debug(_tag, "onServiceConnected() called.");
 				liveCardDemoLocalService = ((LiveCardDemoLocalService.LocalBinder)service).GetService();
@@ -40,7 +40,7 @@ namespace LiveCardDemo2
 				Log.Debug(_tag, "onServiceDisconnected() called.");
 				liveCardDemoLocalService = null;
 			}
-			#endregion
+
 			#region IDisposable implementation
 			public void Dispose ()
 			{
