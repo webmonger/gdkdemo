@@ -13,6 +13,7 @@ using System.Threading;
 using Android.Util;
 using Android.Database;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MotionSensorDemo
 {
@@ -64,7 +65,7 @@ namespace MotionSensorDemo
 				return _service;
 			}
 		}
-		private IBinder mBinder = new LocalBinder(this);
+		private IBinder mBinder = new LocalBinder(new MotionSensorDemoLocalService());
 
 
 		public override void OnCreate()
@@ -218,7 +219,7 @@ namespace MotionSensorDemo
 					// it appears we should call publish() every time the content changes...
 					// But, it seems to work without re-publishing...
 					long now = DateTime.UtcNow.Ticks;
-					Log.Debug("liveCard not published at " + now);
+					Log.Debug(_tag, "liveCard not published at " + now);
 				}
 			} else {
 				// Card is already published.
@@ -250,14 +251,14 @@ namespace MotionSensorDemo
 		{
 			long now = DateTime.UtcNow.Ticks;
 
-			Sensor sensor = e.Sensor;
-			Type type = sensor.GetType ();
+			SensorType sensor = e.Sensor.Type;
+			//Type type = sensor.GetType ();
 			long timestamp = e.Timestamp;
 			IList<float> values = e.Values;
 			SensorStatus accuracy = e.Accuracy;
-			SensorValueStruct data = new SensorValueStruct (type, timestamp, values, accuracy);
+			SensorValueStruct data = new SensorValueStruct (sensor, timestamp, values, accuracy);
 
-			switch (type) {
+			switch (sensor) {
 			case SensorType.Accelerometer:
 				lastSensorValuesAccelerometer = data;
 				break;
@@ -274,7 +275,8 @@ namespace MotionSensorDemo
 				lastSensorValuesRotationVector = data;
 				break;
 			default:
-				Log.Warn (_tag, "Unknown type: " + type);
+				Log.Warn (_tag, "Unknown type: " + sensor);
+				break;
 			}
 
 			// TBD:

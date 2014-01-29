@@ -123,7 +123,7 @@ namespace VoiceDemo2
 			}
 		}
 		
-		public partial class string
+		public partial class String
 		{
 			
 			// aapt resource value: 0x7f060000
@@ -153,12 +153,12 @@ namespace VoiceDemo2
 			// aapt resource value: 0x7f060005
 			public const int voicedemo2_voice_trigger = 2131099653;
 			
-			static string()
+			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
-			private string()
+			private String()
 			{
 			}
 		}

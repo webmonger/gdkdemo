@@ -1,24 +1,25 @@
 using System;
 using Android.Hardware;
+using System.Collections.Generic;
 
 namespace MotionSensorDemo
 {
 	public class SensorValueStruct
 	{
-		private int type;
+		private SensorType type;
 		private long timestamp;
-		private float[] values;
-		private int accuracy;
+		private IList<float> values;
+		private SensorStatus accuracy;
 
 		public SensorValueStruct()
 		{
 		}
-		public SensorValueStruct(int type, long timestamp, float[] values)
+		public SensorValueStruct(SensorType type, long timestamp, IList<float> values)
 		{
-			this(type, timestamp, values, SensorDelay.Normal);
+			SensorValueStruct(type, timestamp, values, SensorStatus.AccuracyHigh);
 		}
 
-		public SensorValueStruct(int type, long timestamp, float[] values, int accuracy)
+		public SensorValueStruct(SensorType type, long timestamp, IList<float> values, SensorStatus accuracy)
 		{
 			this.type = type;
 			this.timestamp = timestamp;
@@ -26,10 +27,10 @@ namespace MotionSensorDemo
 			this.accuracy = accuracy;
 		}
 
-		public int GetType() {
+		public SensorType GetType() {
 			return type;
 		}
-		public void SetType(int type) {
+		public void SetType(SensorType type) {
 			this.type = type;
 		}
 
@@ -40,17 +41,17 @@ namespace MotionSensorDemo
 			this.timestamp = timestamp;
 		}
 
-		public float[] GetValues() {
+		public IList<float> GetValues() {
 			return values;
 		}
 		public void SetValues(float[] values) {
 			this.values = values;
 		}
 
-		public int GetAccuracy() {
+		public SensorStatus GetAccuracy() {
 			return accuracy;
 		}
-		public void SetAccuracy(int accuracy) {
+		public void SetAccuracy(SensorStatus accuracy) {
 			this.accuracy = accuracy;
 		}
 

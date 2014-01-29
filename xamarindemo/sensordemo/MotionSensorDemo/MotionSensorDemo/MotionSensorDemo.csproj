@@ -68,13 +68,17 @@
     <Folder Include="Resources\Layout\" />
     <Folder Include="service\" />
     <Folder Include="common\" />
+    <Folder Include="Resources\values\" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\xml\VoiceTriggerStart.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
     <AndroidResource Include="Resources\Layout\Activity_MotionSensorDemo.axml" />
     <AndroidResource Include="Resources\Layout\LiveCard_MotionSensorDemo.axml" />
+    <AndroidResource Include="Resources\values\attrs.xml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
